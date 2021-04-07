@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+  \PYG{n}{input\PYGZus{}attrs} \PYG{o}{=} \PYG{p}{\PYGZob{}(}\PYG{o}{\PYGZhy{}}\PYG{n}{history\PYGZus{}length}\PYG{p}{,} \PYG{n}{predicted\PYGZus{}length}\PYG{p}{)} \PYG{p}{:} \PYG{n}{features}\PYG{p}{,}
+                \PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{n}{history\PYGZus{}length}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{)} \PYG{p}{:} \PYG{n}{labels}\PYG{p}{\PYGZcb{}} \PYG{c+c1}{\PYGZsh{} 输入}
+  \PYG{n}{output\PYGZus{}attrs} \PYG{o}{=} \PYG{p}{\PYGZob{}(}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{n}{predicted\PYGZus{}length}\PYG{p}{)} \PYG{p}{:} \PYG{n}{labels}\PYG{p}{\PYGZcb{}} \PYG{c+c1}{\PYGZsh{} 输出}
+\end{Verbatim}

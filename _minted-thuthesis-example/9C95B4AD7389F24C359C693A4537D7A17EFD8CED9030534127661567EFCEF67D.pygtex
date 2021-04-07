@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+    \PYG{p}{\PYGZob{}(}\PYG{n}{start\PYGZus{}1}\PYG{p}{,} \PYG{n}{end\PYGZus{}1}\PYG{p}{)} \PYG{p}{:} \PYG{p}{[}\PYG{n}{feature\PYGZus{}1\PYGZus{}1}\PYG{p}{,} \PYG{n}{feature\PYGZus{}1\PYGZus{}2}\PYG{p}{,} \PYG{o}{...}\PYG{p}{],}
+     \PYG{p}{(}\PYG{n}{start\PYGZus{}2}\PYG{p}{,} \PYG{n}{end\PYGZus{}2}\PYG{p}{)} \PYG{p}{:} \PYG{p}{[}\PYG{n}{feature\PYGZus{}2\PYGZus{}1}\PYG{p}{,} \PYG{n}{feature\PYGZus{}2\PYGZus{}2}\PYG{p}{,} \PYG{o}{...}\PYG{p}{],} \PYG{o}{...}\PYG{p}{\PYGZcb{}}
+\end{Verbatim}
