@@ -1,4 +1,4 @@
-\begin{thebibliography}{21}
+\begin{thebibliography}{22}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{#1}
 \expandafter\ifx\csname urlstyle\endcsname\relax\else
@@ -16,6 +16,10 @@ Siegel~E.
 \newblock Predictive analytics: The power to predict who will click, buy, lie,
   or die: volume~10[M].
 \newblock Wiley Hoboken, 2013.
+
+\bibitem[isa()]{isa}
+国际自动化协会报告[EB/OL].
+\newblock \url{https://www.isa.org}.
 
 \bibitem[Lebedev et~al.(2018)Lebedev and Lempitsky]{lebedev2018speeding}
 Lebedev~V, Lempitsky~V.

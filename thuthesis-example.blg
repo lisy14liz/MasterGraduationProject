@@ -11,46 +11,49 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Database file #1: ref/refs.bib
+Warning--empty year in isa
+Warning--empty year in isa
+Warning--empty author in isa
 Warning--empty journal in fan2016neural
-You've used 21 entries,
+You've used 22 entries,
             5250 wiz_defined-function locations,
-            1128 strings with 11798 characters,
-and the built_in function-call counts, 197514 in all, are:
-= -- 3672
-> -- 23444
-< -- 29276
-+ -- 7960
-- -- 1504
-* -- 1020
-:= -- 27160
-add.period$ -- 66
-call.type$ -- 21
-change.case$ -- 42
-chr.to.int$ -- 7220
-cite$ -- 22
-duplicate$ -- 504
-empty$ -- 1371
+            1131 strings with 11853 characters,
+and the built_in function-call counts, 198299 in all, are:
+= -- 3715
+> -- 23469
+< -- 29322
++ -- 7981
+- -- 1509
+* -- 1040
+:= -- 27256
+add.period$ -- 68
+call.type$ -- 22
+change.case$ -- 43
+chr.to.int$ -- 7239
+cite$ -- 27
+duplicate$ -- 526
+empty$ -- 1448
 format.name$ -- 686
-if$ -- 51323
+if$ -- 51578
 int.to.chr$ -- 1
-int.to.str$ -- 22
+int.to.str$ -- 23
 missing$ -- 0
-newline$ -- 126
+newline$ -- 130
 num.names$ -- 63
-pop$ -- 10959
+pop$ -- 10983
 preamble$ -- 1
-purify$ -- 21
+purify$ -- 22
 quote$ -- 0
-skip$ -- 20536
+skip$ -- 20594
 stack$ -- 0
-substring$ -- 9081
-swap$ -- 23
-text.length$ -- 378
+substring$ -- 9110
+swap$ -- 24
+text.length$ -- 380
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 253
-warning$ -- 1
-while$ -- 459
+type$ -- 266
+warning$ -- 4
+while$ -- 461
 width$ -- 0
-write$ -- 299
-(There was 1 warning)
+write$ -- 308
+(There were 4 warnings)
