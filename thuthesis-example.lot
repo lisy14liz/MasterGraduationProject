@@ -1,0 +1,14 @@
+\contentsline {table}{\numberline {3.1}{\ignorespaces 电网温度预测模型中用到的主要特征说明\relax }}{13}{table.caption.31}%
+\contentsline {table}{\numberline {3.2}{\ignorespaces 列车轴温预测模型中用到的主要特征说明\relax }}{14}{table.caption.33}%
+\contentsline {table}{\numberline {3.3}{\ignorespaces 实验环境\relax }}{19}{table.caption.47}%
+\contentsline {table}{\numberline {3.4}{\ignorespaces 软件环境\relax }}{20}{table.caption.48}%
+\contentsline {table}{\numberline {4.1}{\ignorespaces 基于历史数据，150、192、222三组不同载荷下，电机温度预测均方误差结果\relax }}{28}{table.caption.63}%
+\contentsline {table}{\numberline {4.2}{\ignorespaces 基于历史数据，150、192、222三组不同载荷下，PU温度预测均方误差结果\relax }}{29}{table.caption.64}%
+\contentsline {table}{\numberline {4.3}{\ignorespaces 基于电气信号，150、192、222三组不同载荷下，电机温度预测均方误差结果\relax }}{29}{table.caption.65}%
+\contentsline {table}{\numberline {4.4}{\ignorespaces 基于电气信号，150、192、222三组不同载荷下，PU温度预测均方误差结果\relax }}{29}{table.caption.66}%
+\contentsline {table}{\numberline {5.1}{\ignorespaces 重要性采样的效果：数据随机划分下，全连接网络测试集上的MSE结果\relax }}{32}{table.caption.70}%
+\contentsline {table}{\numberline {5.2}{\ignorespaces 重要性采样的效果：数据随机划分下，长短时记忆网络测试集上的MSE结果\relax }}{33}{table.caption.71}%
+\let \contentsline \ttl@gobblecontents 
+\let \contentsline \ttl@gobblecontents 
+\contentsfinish 
+\contentsfinish 

@@ -1,0 +1,26 @@
+\contentsline {figure}{\numberline {2.1}{\ignorespaces 应用于时间序列预测的典型模型类型及其特点总结\relax }}{6}{figure.caption.21}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces ForecastsNet 网络结构\relax }}{7}{figure.caption.24}%
+\contentsline {figure}{\numberline {2.3}{\ignorespaces TCN空洞卷积结构\relax }}{7}{figure.caption.26}%
+\contentsline {figure}{\numberline {3.1}{\ignorespaces 5103号列车数据中环境温度变化图（横轴是时间，纵轴是环境温度，单位为摄氏度）\relax }}{15}{figure.caption.37}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces 电网数据分段及划分处理流程图\relax }}{16}{figure.caption.39}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces 列车走行部数据采样时间间隔分布直方图（横坐标：间隔(s)，纵坐标：频次）\relax }}{16}{figure.caption.40}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces 数据标准化前预测效果示意图\relax }}{17}{figure.caption.41}%
+\contentsline {figure}{\numberline {3.5}{\ignorespaces 数据标准化流程\relax }}{18}{figure.caption.42}%
+\contentsline {figure}{\numberline {3.6}{\ignorespaces 数据标准化效果说明图\relax }}{18}{figure.caption.43}%
+\contentsline {figure}{\numberline {3.7}{\ignorespaces 出现过拟合问题的网络训练过程loss变化\relax }}{19}{figure.caption.44}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces 预测式故障检测示意图\relax }}{22}{figure.caption.49}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces 列车轴温预测系统流程框架图\relax }}{23}{figure.caption.50}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces 工业装备状态预测部分系统设计\relax }}{23}{figure.caption.51}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces 模型在高频处会预测效果差示意图\relax }}{24}{figure.caption.53}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces 往前预测多步均方误差（横轴坐标值代表往前预测的步数，纵轴是均方误差）\relax }}{27}{figure.caption.60}%
+\contentsline {figure}{\numberline {4.6}{\ignorespaces 出现过拟合问题的网络训练过程loss变化\relax }}{27}{figure.caption.61}%
+\contentsline {figure}{\numberline {4.7}{\ignorespaces 过拟合策略效果图：加了dropout之后的模型loss曲线变化\relax }}{28}{figure.caption.62}%
+\contentsline {figure}{\numberline {5.1}{\ignorespaces 重要性采样模型结构\relax }}{31}{figure.caption.67}%
+\contentsline {figure}{\numberline {5.2}{\ignorespaces 三次对比实验训练加速平均效果：验证集的loss变化趋势图\relax }}{32}{figure.caption.69}%
+\contentsline {figure}{\numberline {5.3}{\ignorespaces 三次对比实验训练加速平均效果：验证集的loss变化趋势图（100个epoch开始）\relax }}{33}{figure.caption.72}%
+\contentsline {figure}{\numberline {5.4}{\ignorespaces 三次对比实验分别的训练加速效果：验证集的loss变化趋势图\relax }}{34}{figure.caption.74}%
+\let \contentsline \ttl@gobblecontents 
+\let \contentsline \ttl@gobblecontents 
+\contentsline {figure}{\numberline {A.1}{\ignorespaces 牵引主电路图\relax }}{38}{figure.caption.77}%
+\contentsfinish 
+\contentsfinish 

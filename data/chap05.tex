@@ -6,6 +6,35 @@
 参考相关的工作，搭建了一个，基于最新版本的深度学习框架的，
 对于各类神经网络通用的训练加速的框架，介绍了框架的具体实现的方式，及其加速的效果。
 
+\section{训练加速算法}
+需要指出的是，不同的样本在不同的研究阶段对模型的训练效果是不一样的。
+基于训练加速这一研究目标，这里从样本的角度出发，研究如何尽可能高效地利用样本，
+在每个训练阶段选择对当前训练最有效果的样本来进行训练。
+那么需要定义怎样算对训练有效果，以及怎么选择合适的选择样本的策略。
+
+\begin{algorithm}
+  \caption{重要性采样算法}
+  \begin{algorithmic}
+    \STATE 输入：$B$、$b$、$\tau_{th}$
+    \STATE $t \gets 1$
+    \STATE $\tau \gets 0$
+    \REPEAT
+      \IF {$\tau > \tau_{th} $}
+        \STATE $P \gets$从标准分布中采样$B$个点
+        \STATE 计算$P$中所有点的分数$S$
+        \STATE 重采样：$Q \gets$从这$B$个点中抽取$b$个点
+        \STATE 权重：$w_i \gets \frac{1}{B*S_i}$，$\forall i \in P$
+        \STATE $\theta_t \gets $sgd\_step($w_i$,$Q$,$\theta_{t-1}$)
+      \ELSE
+        \STATE $Q \gets$从标准分布中采样$b$个点
+        \STATE 权重：$w_1 \gets 1$，$\forall i \in Q$
+        \STATE $\theta_t \gets $sgd\_step($w_i$,$Q$,$\theta_{t-1}$)
+      \ENDIF
+      \STATE update $\tau$
+    \UNTIL{convergence} 
+  \end{algorithmic}
+\end{algorithm}
+
 \section{基于重要性采样的训练加速方法框架的设计}
 本文中提到的训练加速框架是基于新版本Tensorflow 2.4的基础上完成，
 应用了最新的Tensorflow的Keras接口。
@@ -17,8 +46,6 @@
 
 而且框架适用于各类神经网络，对具体神经网络的结构没有限制和要求。
 
-
-\subsection{系统设计与组成架构}
 \subsection{模型结构设计}
 
 \begin{figure}
@@ -35,13 +62,14 @@
 
 主要的附加层是这四种，下面对它们进行分别的介绍。
 \begin{enumerate}
-  \item Loss layer
-  \item Score layer：得到的结果用来...!!!，
+  \item Loss layer：得到的样本的损失函数值。
+  \item Score layer：得到的结果用来衡量样本的重要性，
+  用于筛选样本，及决定样本的梯度下降的权重。
   有几种可以选择的类型：
   "loss"、"gnorm"、
   "full\_gnorm"、"acc"
-  \item Weight layer：会根据每个样本的分数计算得到样本的损失的权重，
-  \item Metrics Layer
+  \item Weight layer：会根据每个样本的分数计算得到样本的损失的权重。
+  \item Metrics Layer：计算得到评价指标。
 \end{enumerate}
 
 \section{训练加速实验效果}
@@ -69,14 +97,6 @@
     \caption{三次对比实验训练加速平均效果：验证集的loss变化趋势图}
     \label{fig:importance-sampling-performance}
   \end{figure}
-
-  图\ref{fig:importance-sampling-performance}中给出了，应用不同模型，
-  在应用和不应用重要性采样的方法下，多次实验，验证集loss的变化平均趋势对比，
-  直接这样看看不出加速效果。
-
-  从\ref{fig:FC Val loss for All}和\ref{fig:LSTM Val loss for All}中加速前后的对比，
-  我们可以看出，应用方法的初期，采样其实比较接近标准的采样方式，
-  其实不会有太大的加速效果。
 
   \begin{table}
     \centering
@@ -110,9 +130,17 @@
     \label{tab:lstm random test mses}
   \end{table}
 
+  图\ref{fig:importance-sampling-performance}中给出了，应用不同模型，
+  在应用和不应用重要性采样的方法下，多次实验，验证集loss的变化平均趋势对比，
+  直接这样看看不出加速效果。
+
+  从\ref{fig:FC Val loss for All}和\ref{fig:LSTM Val loss for All}中加速前后的对比，
+  我们可以看出，应用方法的初期，采样其实比较接近标准的采样方式，
+  其实不会有太大的加速效果。
+
   但是从\ref{tab:fc random test mses}和\ref{tab:lstm random test mses}中的结果来看，
   训练同样的epochs，明显应用了重要性采样方法进行训练加速的最终结果要好很多，最终的MSE的值的比例
-  在加速后：加速前=0.6\~0.8左右。
+  在加速后：加速前=0.6\textasciitilde 0.8左右。
   加速效果比较明显。
 
   \begin{figure}
@@ -132,12 +160,6 @@
       \caption{三次对比实验训练加速平均效果：验证集的loss变化趋势图（100个epoch开始）}
       \label{fig:importance-sampling-performance-after-100}
   \end{figure}
-  需要注意的是，由于前100个epoch的对比不是很明显，
-  \ref{fig:importance-sampling-performance-after-100}中的
-  图\ref{fig:FC Val loss after epoch 100}和
-  图\ref{fig:LSTM Val loss after epoch 100}
-  对100个epoch以后的数据单独plot了出来。
-  明显应用了重要性采样加速的验证集loss下降更快。
 
   \subsubsection{加速效果的稳定性}
   \begin{figure}
@@ -159,6 +181,13 @@
       \label{fig:importance-sampling-performance-All}
   \end{figure}
 
+  需要注意的是，由于前100个epoch的对比不是很明显，
+  \ref{fig:importance-sampling-performance-after-100}中的
+  图\ref{fig:FC Val loss after epoch 100}和
+  图\ref{fig:LSTM Val loss after epoch 100}
+  对100个epoch以后的数据单独plot了出来。
+  明显应用了重要性采样加速的验证集loss下降更快。
+
   本文中应用的重要性采样的方法会有比较稳定的加速效果，
   如图\ref{fig:importance-sampling-performance-All}中所示，
   重要性采样方法处理后的模型，
@@ -167,4 +196,7 @@
   说明整个加速框架比较鲁棒，不太会受到随机因素的影响。
 
 \section{本章小结}
+本章主要介绍了应用重要性采样方法对模型进行训练加速的相关内容。
+从实验的结果可以看出，整体的加速效果较好，而且加速效果比较稳定，
+说明加速系统比较鲁棒。
 

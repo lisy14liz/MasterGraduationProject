@@ -315,30 +315,47 @@
 
     实际的情况下模型的应用效果可能介于两种划分方式之间，所以这里对两种数据划分方式都展开了研究。
 \section{实验环境}
-    本文的实验都是在Linux系统下搭建完成，语言是Python，利用GPU进行模型的训练与测试。
-  
-    深度学习框架方面，本文的实验都基于Tensorflow 版本2.4.1进行，应用了Tensorflow2最新的Keras接口。
-    具体的实验环境和安装包配置如表\ref{tab:env}
-    \begin{table}
-        \centering
-        \caption{实验环境}
-        \begin{tabular}{ll}
-          \toprule
-          环境        & 版本                                        \\
-          \midrule
-          操作系统        & Ubuntu 18.04.3 LTS                          \\
-          Python      & 3.8                                         \\
-          Tensorflow  & 2.4.1                                       \\
-          Cuda        & V10.0.130      \\
-  
-          \bottomrule
-        \end{tabular}
-        \label{tab:env}
-    \end{table}
-    \subsection{实验说明}
+  \begin{table}
+      \centering
+      \caption{实验环境}
+      \begin{tabular}{ll}
+        \toprule
+        环境        & 版本                                        \\
+        \midrule
+        操作系统        & Ubuntu 18.04.3 LTS                          \\
+        \bottomrule
+      \end{tabular}
+      \label{tab:env}
+  \end{table}
+
+  \begin{table}
+    \centering
+    \caption{软件环境}
+    \begin{tabular}{lll}
+      \toprule
+      软件环境名称        & 安装包版本信息          & 安装来源                              \\
+      \midrule
+      Cuda        & V10.0.130     & 官网 \\
+      Python      & 3.8           & Conda                              \\
+      Tensorflow  & 2.4.1             & pip                          \\
+      Pandas        &  1.2.2    & pip  \\
+      Numpy        &    1.19.5   & pip \\
+      Sklearn         &   0.24.1  & pip   \\
+      EMD-signal     &  0.2.13 & pip \\
+
+      \bottomrule
+    \end{tabular}
+    \label{tab:software}
+  \end{table}
+  本文的实验都是在Linux系统下搭建完成，语言是Python，利用GPU进行模型的训练与测试。
+
+  深度学习框架方面，本文的实验都基于Tensorflow 版本2.4.1进行，
+  应用了Tensorflow2最新的Keras接口。
+  具体的实验环境和安装包配置如表\ref{tab:env}和表\ref{tab:software}所示。
+  \subsection{实验说明}
     需要注意的是，为了消除随机因素的影响，
     如果没有特别说明，那文中给出的实验结果都是基于三次重复实验的平均结果。
-    \subsection{选用Tensorflow2编写的原因}
+    \subsection{选用Tensorflow2编写的优势}
     首先对比下动态图和静态图的特点。旧版本的Tensorflow一直采用的是静态图的机制，
     而被学术界研究人员广泛应用的Pytorch是基于动态图的机制。
     静态图是指，在图被构建之后，在模型运行之时，计算过程中，图是无法修改的。

@@ -1,0 +1,155 @@
+\begin{thebibliography}{21}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{#1}
+\expandafter\ifx\csname urlstyle\endcsname\relax\else
+  \urlstyle{same}\fi
+\expandafter\ifx\csname href\endcsname\relax
+  \DeclareUrlCommand\doi{\urlstyle{rm}}
+  \def\eprint#1#2{#2}
+\else
+  \def\doi#1{\href{https://doi.org/#1}{\nolinkurl{#1}}}
+  \let\eprint\href
+\fi
+
+\bibitem[Siegel(2013)]{siegel2013predictive}
+Siegel~E.
+\newblock Predictive analytics: The power to predict who will click, buy, lie,
+  or die: volume~10[M].
+\newblock Wiley Hoboken, 2013.
+
+\bibitem[Lebedev et~al.(2018)Lebedev and Lempitsky]{lebedev2018speeding}
+Lebedev~V, Lempitsky~V.
+\newblock Speeding-up convolutional neural networks: A survey[J].
+\newblock Bulletin of the Polish Academy of Sciences. Technical Sciences, 2018,
+  66\penalty0 (6).
+
+\bibitem[Alexandrov et~al.(2019)Alexandrov, Benidis, Bohlke{-}Schneider,
+  Flunkert, Gasthaus, Januschowski, Maddix, Rangapuram, Salinas, Schulz,
+  Stella, T{\"{u}}rkmen, and Wang]{DBLP:journals/corr/abs-1906-05264}
+Alexandrov~A, Benidis~K, Bohlke{-}Schneider~M, et~al.
+\newblock Gluonts: Probabilistic time series models in python[J/OL].
+\newblock CoRR, 2019, abs/1906.05264.
+\newblock \url{http://arxiv.org/abs/1906.05264}.
+
+\bibitem[Makridakis et~al.(2020)Makridakis, Spiliotis, and
+  Assimakopoulos]{MAKRIDAKIS202054}
+Makridakis~S, Spiliotis~E, Assimakopoulos~V.
+\newblock The m4 competition: 100,000 time series and 61 forecasting
+  methods[J/OL].
+\newblock International Journal of Forecasting, 2020, 36\penalty0 (1): 54-74.
+\newblock
+  \url{https://www.sciencedirect.com/science/article/pii/S0169207019301128}.
+\newblock DOI: \doi{https://doi.org/10.1016/j.ijforecast.2019.04.014}.
+
+\bibitem[Salinas et~al.(2020)Salinas, Flunkert, Gasthaus, and
+  Januschowski]{salinas2020deepar}
+Salinas~D, Flunkert~V, Gasthaus~J, et~al.
+\newblock Deepar: Probabilistic forecasting with autoregressive recurrent
+  networks[J].
+\newblock International Journal of Forecasting, 2020, 36\penalty0 (3):
+  1181-1191.
+
+\bibitem[Smyl(2020)]{smyl2020hybrid}
+Smyl~S.
+\newblock A hybrid method of exponential smoothing and recurrent neural
+  networks for time series forecasting[J].
+\newblock International Journal of Forecasting, 2020, 36\penalty0 (1): 75-85.
+
+\bibitem[Hewamalage et~al.(2021)Hewamalage, Bergmeir, and
+  Bandara]{hewamalage2021recurrent}
+Hewamalage~H, Bergmeir~C, Bandara~K.
+\newblock Recurrent neural networks for time series forecasting: Current status
+  and future directions[J].
+\newblock International Journal of Forecasting, 2021, 37\penalty0 (1): 388-427.
+
+\bibitem[De~Brouwer et~al.(2019)De~Brouwer, Simm, Arany, and Moreau]{de2019gru}
+De~Brouwer~E, Simm~J, Arany~A, et~al.
+\newblock Gru-ode-bayes: Continuous modeling of sporadically-observed time
+  series[J].
+\newblock arXiv preprint arXiv:1905.12374, 2019.
+
+\bibitem[Dabrowski et~al.(2020)Dabrowski, Zhang, and
+  Rahman]{dabrowski2020forecastnet}
+Dabrowski~J~J, Zhang~Y, Rahman~A.
+\newblock Forecastnet: A time-variant deep feed-forward neural network
+  architecture for multi-step-ahead time-series forecasting[C]//
+International Conference on Neural Information Processing.
+\newblock Springer, 2020: 579-591.
+
+\bibitem[LeCun et~al.(1989)LeCun, Boser, Denker, Henderson, Howard, Hubbard,
+  and Jackel]{lecun1989backpropagation}
+LeCun~Y, Boser~B, Denker~J~S, et~al.
+\newblock Backpropagation applied to handwritten zip code recognition[J].
+\newblock Neural computation, 1989, 1\penalty0 (4): 541-551.
+
+\bibitem[Amari et~al.(2003)]{amari2003handbook}
+Amari~S, et~al.
+\newblock The handbook of brain theory and neural networks[M].
+\newblock MIT press, 2003.
+
+\bibitem[Chung et~al.(2014)Chung, Gulcehre, Cho, and
+  Bengio]{chung2014empirical}
+Chung~J, Gulcehre~C, Cho~K, et~al.
+\newblock Empirical evaluation of gated recurrent neural networks on sequence
+  modeling[J].
+\newblock arXiv preprint arXiv:1412.3555, 2014.
+
+\bibitem[Binkowski et~al.(2018)Binkowski, Marti, and
+  Donnat]{binkowski2018autoregressive}
+Binkowski~M, Marti~G, Donnat~P.
+\newblock Autoregressive convolutional neural networks for asynchronous time
+  series[C]//
+International Conference on Machine Learning.
+\newblock PMLR, 2018: 580-589.
+
+\bibitem[Shi et~al.(2015)Shi, Chen, Wang, Yeung, Wong, and
+  Woo]{shi2015convolutional}
+Shi~X, Chen~Z, Wang~H, et~al.
+\newblock Convolutional lstm network: A machine learning approach for
+  precipitation nowcasting[J].
+\newblock arXiv preprint arXiv:1506.04214, 2015.
+
+\bibitem[Bai et~al.(2018)Bai, Kolter, and Koltun]{bai2018empirical}
+Bai~S, Kolter~J~Z, Koltun~V.
+\newblock An empirical evaluation of generic convolutional and recurrent
+  networks for sequence modeling[J].
+\newblock arXiv preprint arXiv:1803.01271, 2018.
+
+\bibitem[Pascanu et~al.(2013)Pascanu, Gulcehre, Cho, and
+  Bengio]{pascanu2013construct}
+Pascanu~R, Gulcehre~C, Cho~K, et~al.
+\newblock How to construct deep recurrent neural networks[J].
+\newblock arXiv preprint arXiv:1312.6026, 2013.
+
+\bibitem[Bordes et~al.(2005)Bordes, Ertekin, Weston, Botton, and
+  Cristianini]{bordes2005fast}
+Bordes~A, Ertekin~S, Weston~J, et~al.
+\newblock Fast kernel classifiers with online and active learning.[J].
+\newblock Journal of Machine Learning Research, 2005, 6\penalty0 (9).
+
+\bibitem[Zhao et~al.(2015)Zhao and Zhang]{zhao2015stochastic}
+Zhao~P, Zhang~T.
+\newblock Stochastic optimization with importance sampling for regularized loss
+  minimization[C]//
+international conference on machine learning.
+\newblock PMLR, 2015: 1-9.
+
+\bibitem[Wu et~al.(2017)Wu, Manmatha, Smola, and Krahenbuhl]{wu2017sampling}
+Wu~C~Y, Manmatha~R, Smola~A~J, et~al.
+\newblock Sampling matters in deep embedding learning[C]//
+Proceedings of the IEEE International Conference on Computer Vision.
+\newblock 2017: 2840-2848.
+
+\bibitem[Needell et~al.(2014)Needell, Ward, and Srebro]{needell2014stochastic}
+Needell~D, Ward~R, Srebro~N.
+\newblock Stochastic gradient descent, weighted sampling, and the randomized
+  kaczmarz algorithm[J].
+\newblock Advances in neural information processing systems, 2014, 27:
+  1017-1025.
+
+\bibitem[Fan et~al.(2016)Fan, Tian, Qin, and Liu]{fan2016neural}
+Fan~Y, Tian~F, Qin~T, et~al.
+\newblock Neural data filter for bootstrapping stochastic gradient descent[J].
+\newblock 2016.
+
+\end{thebibliography}

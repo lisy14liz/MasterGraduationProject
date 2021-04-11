@@ -50,7 +50,28 @@
 
 \section{工业装备状态预测方案}
 \subsection{系统设计}
+
+  \begin{figure}
+    \centering
+    \includegraphics[width=\linewidth]{figures/prediction_system.png}
+    \caption{工业装备状态预测部分系统设计}
+    \label{fig:prediction system}
+  \end{figure}
+
+  如\ref{fig:prediction system}图中所示，这里给出了整体预测方案的系统设计方案。
+  \begin{enumerate}
+    \item 针对极值部分数据突变的预测技术。
+    由于极值部分变化剧烈，往往预测效果不好。
+    解决这个问题的一个方案就是对信号进行频率分解，
+    这样输入的特征中会包含不同频率的信号特征，能够更好地预测极值部分的数据值。
+    所以应用经验模态分解对时间序列进行信号处理，提取出不同频率的信号分量。
+    \item 针对序列难建模的特点，提出应用CNN+LSTM组合的模型结构。
+    \item 针对工业序列噪声大、特征之间相关程度高的特点，利用Auto-Encoder部分进行特征相关性的提取。
+  \end{enumerate}
+  
+
 \subsection{方法说明}
+在这一个小的章节中，将会对工业装备状态预测方案中采取的具体方法进行分别的说明。
 \subsubsection{经验模态分解信号处理}
   \begin{figure}
     \centering
@@ -123,8 +144,45 @@ PCA 方法只适用于线性降维，其他的降维方法也会受到数据的�
 当然当出现自编码器效果不好时，也可以通过尝试别的不同结构的自编码器进行处理，
 例如这里可以尝试编码器和解码器都是更加适用于序列处理的网络结构，例如LSTM模块，
 但是在这里不作过多展开和研究。
-
 \subsubsection{防止过拟合的策略}
+针对在\ref{subsection_diffrent_divide}中提出的，
+在序列化的划分方式下出现的过拟合问题，采用了加dropout的方式进行解决。
+在后面应用LSTM时，也采用了同样的加dropout方式，同样也不存在过拟合问题。
+
+\subsection{两种不同的状态预测方法}
+对于状态预测有两种方式，一种是通过历史数据回归，
+另外一种是结合历史数据和当前的其他可获得的电气信号预测。
+这两种预测方式都有其各自的特点和适用的应用场景。
+
+第一种通过历史数据回归的状态预测方法，它的应用场景更为广泛，
+第二种需要获得当前的其他电气信号，有的场景下受到传感器数据收集速度或者数据传输速度的限制，
+即时的信号并不那么容易获取，第一种方法就不会有这样的限制。
+
+但是第一种方法也会存在相应的问题，有的时候会发生工况等状态的变化，
+这样情况下简单通过历史的信息回归信息是不完备的。
+
+\section{实验结果}
+
+\subsection{往前预测多步结果}
+
+  \begin{figure}
+    \centering
+    \includegraphics[width=0.8\linewidth]{figures/往前预测多步均方误差.png}
+    \caption{往前预测多步均方误差（横轴坐标值代表往前预测的步数，纵轴是均方误差）}
+    \label{fig:multi-step}
+  \end{figure}
+
+  预测的效果和设定的往前预测的时间长度相关。
+  自回归往前预测第i步（i取1-160）的均方误差如图\ref{fig:multi-step}中所示，
+  可以看到，往前预测得越远，均方误差越大，预测效果越差。
+\subsection{防止过拟合的策略实验结果}
+
+  \begin{figure}
+    \centering
+    \includegraphics[width=0.5\textwidth]{20210327_1505/FC losses.png}
+    \caption{出现过拟合问题的网络训练过程loss变化}
+    \label{fig:overfit FC 1}
+  \end{figure}
 
   \begin{figure}
     \centering
@@ -145,17 +203,95 @@ PCA 方法只适用于线性降维，其他的降维方法也会受到数据的�
        \label{fig:losses with dropout}
   \end{figure}
 
-  针对在\ref{subsection_diffrent_divide}中提出的，在序列化的划分方式下出现的过拟合问题，采用了加dropout的方式进行解决，
-  如图\ref{fig:FC losses with dropout}中所示，对比前面图\ref{fig:overfit FC}中的结果,
+  如图\ref{fig:FC losses with dropout}中所示，
+  对比前面图\ref{fig:overfit FC 1}中的结果,
+  不再出现训练一段时间后训练集loss虽然一直在下降，但是验证集的loss反而再上升，
+  而且训练集的效果远远好于测试集效果这样的情况。
   在模型过拟合方面有了明显改进。
+  说明加dropout模块的方法十分有效。
+
+\subsection{两种不同方法的工业装备状态预测的结果}
   
-  在后面应用LSTM时，也采用了同样的加dropout方式，同样也不存在过拟合问题。
-\section{两种不同的状态预测方法}
-对于状态预测有两种方式，一种是通过历史数据回归，
-另外一种是结合历史数据和当前的其他可获得的电气信号预测。
-这两种预测方式都有其各自的特点和适用的应用场景。
-\subsection{基于历史数据的工业装备状态预测方法}
-\subsection{基于电气信号的工业装备状态预测方法}
+  \begin{table}
+    \centering
+    \caption{基于历史数据，150、192、222三组不同载荷下，电机温度预测均方误差结果}
+    \begin{tabular}{lclcl}
+      \toprule
+      载荷       & 训练集MSE & 测试集MSE                                   \\
+      \midrule
+      150    & 0.357 & 0.334                                \\
+      192 & 0.328 & 0.358                                     \\
+      222 & 0.197 & 0.190                  \\
+      \bottomrule
+    \end{tabular}
+    \label{tab:regression motor results}
+  \end{table}
+
+  \begin{table}
+    \centering
+    \caption{基于历史数据，150、192、222三组不同载荷下，PU温度预测均方误差结果}
+    \begin{tabular}{lclcl}
+      \toprule
+      载荷       & 训练集MSE & 测试集MSE                                    \\
+      \midrule
+      150    & 0.011 & 0.017                                \\
+      192 & 0.020 & 0.022                                     \\
+      222 & 0.038 & 0.037                 \\
+      \bottomrule
+    \end{tabular}
+    \label{tab:regression PU results}
+  \end{table}
+  
+  \begin{table}
+    \centering
+    \caption{基于电气信号，150、192、222三组不同载荷下，电机温度预测均方误差结果}
+    \begin{tabular}{lclcl}
+      \toprule
+      载荷       & 训练集MSE & 测试集MSE                                   \\
+      \midrule
+      150    & 0.014 & 0.670                                \\
+      192 & 0.004 & 0.034                                    \\
+      222 & 0.042 & 1.925                 \\
+      \bottomrule
+    \end{tabular}
+    \label{tab:prediction motor results}
+  \end{table}
+
+  \begin{table}
+    \centering
+    \caption{基于电气信号，150、192、222三组不同载荷下，PU温度预测均方误差结果}
+    \begin{tabular}{lclcl}
+      \toprule
+      载荷       & 训练集MSE & 测试集MSE                                    \\
+      \midrule
+      150    & 0.001 & 0.031                                \\
+      192 & 0.004 & 0.032                                     \\
+      222 & 0.026 & 0.610              \\
+      \bottomrule
+    \end{tabular}
+    \label{tab:prediction PU results}
+  \end{table}
+  
+  下面对两种不同方法分别进行实验，每种方法分别应用到电机温度预测和PU温度预测两个场景下，
+  给出了在三种不同载荷情况下，训练集的MSE和测试集的MSE的最终结果。
+
+  
+  \ref{tab:regression motor results}和\ref{tab:regression PU results}
+  给出的是第一种方法--基于历史信息的预测方法的结果，
+  \ref{tab:prediction motor results}和\ref{tab:prediction PU results}
+  给出的是第二种方法--基于电气信号的预测方法的结果。
+
+  通过上面的结果可以看到，基于电气信号的方法的训练集MSE明显更小，而且差别比较悬殊，差了10倍以上，
+  说明这样的方法的确提供的信息更完备。
+
+  但是测试集的效果却反而不是很好，在基于电气信号的方法中，
+  虽然数据提供的信息量更多，但是模型效果反而更差。
+  分析原因是因为过拟合导致的，数据中的噪声也会导致这样的问题，加上MSE的数值本身就容易受到个别异常点的影响，
+  所以导致了测试集MSE的结果比较差。
+
 
 
 \section{本章小结}
+在本章中讨论了关于工业装备状态预测的相关问题，
+主要目标是搭建一个预测效果好的深度神经网络模型，
+对不同的模型结构进行了研究和对比，同时提出了一些提高模型预测效果的方案。
