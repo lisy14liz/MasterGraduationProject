@@ -1,23 +1,20 @@
 % \iffalse meta-comment
 %
-% Copyright (C) 2005-2020 by Tsinghua University TUNA Association <tuna@tsinghua.edu.cn>
-%
+% Copyright (C) 2005-2021 by Tsinghua University TUNA Association <tuna@tsinghua.edu.cn>
 %
 % This work may be distributed and/or modified under the
-% conditions of the LaTeX Project Public License, either version 1.3
+% conditions of the LaTeX Project Public License, either version 1.3c
 % of this license or (at your option) any later version.
 % The latest version of this license is in
-%   http://www.latex-project.org/lppl.txt
-% and version 1.3 or later is part of all distributions of LaTeX
-% version 2005/12/01 or later.
-%
-% This work has the LPPL maintenance status `maintained'.
+%    https://www.latex-project.org/lppl.txt
+% and version 1.3c or later is part of all distributions of LaTeX
+% version 2008 or later.
 %
 % \fi
 %
 % \iffalse
 %<*driver>
-\ProvidesFile{thuthesis.dtx}[2020/10/14 7.1.0 Tsinghua University Thesis Template]
+\ProvidesFile{thuthesis.dtx}[2021/04/03 7.2.2 Tsinghua University Thesis Template]
 \documentclass{ltxdoc}
 \usepackage{dtx-style}
 
@@ -75,13 +72,17 @@
 % \item 本模板的发布遵守 \href{https://www.latex-project.org/lppl/lppl-1-3c.txt}{\LaTeX{} Project Public License (1.3.c)}，使用前请认真阅读协议内
 %   容。
 % \item 本模板为作者根据
-%   清华大学研究生院颁发的
-%   \href{http://yjsy.cic.tsinghua.edu.cn/docinfo/board/boarddetail.jsp?columnId=001050603&parentColumnId=0010506&itemSeq=5365}{%
-%   《研究生学位论文写作指南》}（仅限校内网络访问）、
-%   清华大学教务处颁发的《综合论文训练写作指南》和
-%   清华大学
+%   清华大学研究生院颁发的《
+%    \href{http://yjsy.cic.tsinghua.edu.cn/docinfo/board/boarddetail.jsp?columnId=001050603&parentColumnId=0010506&itemSeq=5365}{%
+%   研究生学位论文写作指南}》（限校内网络访问）、
+%   英文版《Guide to Thesis Writing for Graduate Students》、
+%   清华大学教务处颁发的《
+%   \href{https://lib.tsinghua.edu.cn/dra/news/annoucement/7963}{%
+%   综合论文训练写作指南}》、
+%   外文系的《英语专业本科生综合论文训练》和
+%   清华大学《
 %   \href{http://postdoctor.tsinghua.edu.cn/info/czxz/1283}{%
-%     《编写“清华大学博士后研究报告”参考意见》}
+%   编写“清华大学博士后研究报告”参考意见}》
 %   编写而成，旨在供清华大学毕业生撰写学位论文使用。
 % \item 任何个人或组织以本模板为基础进行修改、扩展而生成的新的专用模板，请严格遵
 %   守 \LaTeX{} Project Public License 协议。由于违犯协议而引起的任何纠纷争端均与
@@ -100,8 +101,8 @@
 % \clearpage
 %
 % \section{模板介绍}
-% \thuthesis{} (\textbf{T}sing\textbf{h}ua \textbf{U}niversity \LaTeX{}
-% \textbf{Thesis} Template) 是为了帮助清华大学毕业生撰写毕业论文而编写
+% \thuthesis{}（\textbf{T}sing\textbf{h}ua \textbf{U}niversity \LaTeX{}
+% \textbf{Thesis} Template）是为了帮助清华大学毕业生撰写毕业论文而编写
 % 的 \LaTeX{} 论文模板。
 %
 % 本文档将尽量完整的介绍模板的使用方法，如有不清楚之处，或者想提出改进建议，
@@ -318,47 +319,41 @@
 %   \documentclass[degree=master, degree-type=professional]{thuthesis}
 % \end{latex}
 %
-% \subsection{字体配置}
+% \subsubsection{字体配置}
 % \label{sec:font-config}
-% 模板默认可以自动检测操作系统，并配置改平台上合适的字体，
-% 具体的配置策略如表~\ref{tab:font}。
+% \DescribeOption{fontset}
+% 模板默认会自动根据操作系统配置合适的字体，
+% 用户也可以通过 \option{fontset} 时指定使用预设的字库，如：
+% \begin{latex}
+%   \documentclass[fontset=windows]{thuthesis}
+% \end{latex}
+% 允许的选项有 \option{windows}、\option{mac}、\option{ubuntu} 和 \option{fandol}，
+% 具体使用的字体见表~\ref{tab:fontset}。
+% 用户也可以设置为 \option{none} 并自行配置字体。
+%
 % \begin{table}[htb]
 %   \centering
-%   \caption{\thuthesis{} 自动配置字体策略}
-%   \label{tab:font}
-%   \begin{tabular}{ccc}
+%   \caption{\thuthesis{} 预设的字体}
+%   \label{tab:fontset}
+%   \begin{tabular}{cccc}
 %     \toprule
-%     Windows         & macOS           & 其他            \\
+%     \option{windows} & \option{mac}    & \option{ubuntu} & \option{fandol} \\
 %     \midrule
-%     Times New Roman & Times New Roman & TeX Gyre Termes \\
-%     Arial           & Arial           & TeX Gyre Heros  \\
-%     Courier         & Menlo           & TeX Gyre Cursor \\
-%     中易宋体        & 华文宋体        & Fandol 宋体     \\
-%     中易黑体        & 华文黑体        & Fandol 黑体     \\
+%     Times New Roman  & Times New Roman & TeX Gyre Termes & TeX Gyre Termes \\
+%     Arial            & Arial           & TeX Gyre Heros  & TeX Gyre Heros  \\
+%     Courier          & Menlo           & TeX Gyre Cursor & TeX Gyre Cursor \\
+%     中易宋体         & 华文宋体        & 思源宋体        & Fandol 宋体     \\
+%     中易黑体         & 华文黑体        & 思源黑体        & Fandol 黑体     \\
 %     \bottomrule
 %   \end{tabular}
 % \end{table}
 %
-% 然而自动配置的字体只能保证编译通过，但是还存在一些问题：
-% \begin{enumerate}
-%   \item 在其他平台上配置的 TeX Gyre 系列字体，虽然在风格上比较接近 Times 和 Arial，
-%     但是毕竟跟《写作指南》要求的字体不完全一致；
-%   \item Fandol 字库的字形较少，常常出现缺字的情况；
-%   \item 华文字库和 Fandol 字库虽然不违反《写作指南》的要求，
-%     但是其字形跟中易字库有所差别，这导致封面、标题的视觉效果与学校的 Word 示例不一致，
-%     可能被审查老师认为格式不符合要求。
-% \end{enumerate}
+% 需要注意，研究生院建议中文字体同 Word 模板一致。
+% 也就是说，用户在提交终版前应使用 Windows 平台的字体进行编译。
 %
-% 所以建议在提交最终版前使用 Windows 平台的字体进行编译。
+% 关于字体的配置，
+% 详见 \pkg{fontspec}、\pkg{xeCJK}、\pkg{ctex} 等宏包的使用说明和代码。
 %
-% 用户也可以在调用 \thuthesis{} 时手动指定使用的字库，如：
-%
-% \begin{latex}
-%   \documentclass[fontset=windows]{thuthesis}
-% \end{latex}
-%
-% 允许的选项有 \option{windows}、\option{mac}、\option{fandol}，详
-% 见 \pkg{ctex}、\pkg{xeCJK}、\pkg{fontspec} 等宏包的使用说明。
 %
 % \subsection{论文设置}
 % 论文的设置可以通过统一命令 \cs{thusetup} 设置 \emph{key=value} 形式完成。
@@ -412,10 +407,26 @@
 % 论文的一些部分（如英文摘要、本科生的外文调研报告）要求使用特定的语言，
 % 模板已经进行配置，并在这些部分结束后自动恢复为主要语言。
 %
-% 注意，本科生《写作指南》要求“本科生(含国外来华留学本科生)非外语专业论文统一要求
+% 注意，本科生《写作指南》要求“本科生（含国外来华留学本科生）非外语专业论文统一要求
 % 用中文书写。”研究生《写作指南》要求“外国人来华留学生可以用英文撰写学位论文，但
 % 须采用中文封面”，“除留学生外，学位论文一律须用汉语书写”，用户须提前与导师和院系
 % 的审查教师协商使用何种语言书写论文。
+%
+% \subsubsection{开题报告}
+% \DescribeOption{thesis-type}
+% 模板还支持博士生论文开题报告的格式，可以通过设置 \option{thesis-type=proposal} 得到。
+%
+% 开题报告与学位论文有两点不同：
+% \begin{enumerate}
+%   \item 封面的信息和格式有区别，尤其是增加了一行“学号”信息，需要通过 \option{student-id} 填写；
+%   \item 开题报告不含英文标题页。
+% \end{enumerate}
+% \begin{latex}
+%   \thusetup{
+%     thesis-type = proposal,
+%     student-id  = {2000310000},
+%   }
+% \end{latex}
 %
 % \subsection{封面信息}
 % \label{sec:titlepage}
@@ -433,27 +444,31 @@
 %
 % \subsubsection{申请学位名称}
 % \label{sec:degree-name}
-% 学位的设置要复杂一些：
+% 学位名称的设置比较复杂，见表~\ref{tab:degree-name}。
 %
-% \begin{longtable}{p{2cm}p{6cm}p{6cm}}
-%   \toprule
-%   学位类型 & degree-name & degree-name* \\
-%   \midrule
-%   学术型博士 & 需注明所属的学科门类，例如：
-%       哲学、经济学、法学、教育学、文学、历史学、理学、工学、农学、医学、
-%       军事学、管理学、艺术学
-%     & Doctor of Philosophy \\
-%   \midrule
-%   学术型硕士 & 同上
-%     & 哲学、文学、历史学、法学、教育学、艺术学门类，公共管理学科
-%       填写“Master of Arts“，其它填写“Master of Science” \\
-%   \midrule
-%   专业型研究生学位 & 专业学位的名称，例如：教育博士、工程硕士
-%     & 专业学位的名称，例如：Doctor of Education, Master of Engineering \\
-%   \midrule
-%   本科生 & - & - \\
-%   \bottomrule
-% \end{longtable}
+% \begin{table}[h]
+%   \caption{学位名称的要求}
+%   \label{tab:degree-name}
+%   \begin{tabular}{p{2cm}p{6cm}p{6cm}}
+%     \toprule
+%     学位类型 & degree-name & degree-name* \\
+%     \midrule
+%     学术型博士 & 需注明所属的学科门类，例如：
+%         哲学、经济学、法学、教育学、文学、历史学、理学、工学、农学、医学、
+%         军事学、管理学、艺术学
+%       & Doctor of Philosophy \\
+%     \midrule
+%     学术型硕士 & 同上
+%       & 哲学、文学、历史学、法学、教育学、艺术学门类，公共管理学科
+%         填写“Master of Arts“，其它填写“Master of Science” \\
+%     \midrule
+%     专业型研究生学位 & 专业学位的名称，例如：教育博士、工程硕士
+%       & 专业学位的名称，例如：Doctor of Education, Master of Engineering \\
+%     \midrule
+%     本科生 & - & - \\
+%     \bottomrule
+%   \end{tabular}
+% \end{table}
 %
 % \begin{latex}
 %   \thusetup{
@@ -495,13 +510,21 @@
 %   }
 % \end{latex}
 %
+% \subsubsection{学号}
+% 学号，仅用于博士生论文开题报告。
+% \begin{latex}
+%   \thusetup{
+%     student-id  = {20000310000},
+%   }
+% \end{latex}
+%
 % \subsubsection{导师}
 % \myentry{导师}
 % 导师的姓名与职称之间以“,”（西文逗号，U+002C）隔开，下同。
 % \begin{latex}
 %   \thusetup{
 %     supervisor  = {导师姓名, 教授},
-%     supervisor* = {Supervisor Name, Professor},
+%     supervisor* = {Professor Supervisor Name},
 %   }
 % \end{latex}
 %
@@ -510,7 +533,7 @@
 % \begin{latex}
 %   \thusetup{
 %     associate-supervisor  = {副导师姓名, 副教授},
-%     associate-supervisor* = {Assoc-Supervisor Name, Professor},
+%     associate-supervisor* = {Professor Assoc-Supervisor Name},
 %   }
 % \end{latex}
 %
@@ -518,8 +541,8 @@
 % 硕士生、本科生联合指导教师，博士生联合导师。
 % \begin{latex}
 %   \thusetup{
-%     joint-supervisor  = {联合导师姓名, 教授},
-%     joint-supervisor* = {Join-Supervisor Name, Professor},
+%     co-supervisor  = {联合导师姓名, 教授},
+%     co-supervisor* = {Professor Join-Supervisor Name},
 %   }
 % \end{latex}
 %
@@ -727,34 +750,121 @@
 % 见 \pkg{nomencl} 宏包的文档。
 %
 % \subsection{正文部分}
+% \subsubsection{图表编号}
+% \DescribeOption{figure-number-separator}
+% \DescribeOption{table-number-separator}
+% \DescribeOption{equation-number-separator}
+% 研究生要求图表和公式的编号使用“.”或“-”连接，模板默认使用句点“.”。
+% 用户也可以通过 \option{figure-number-separator}、\option{table-number-separator}
+% 等选项分别设置：
+% \begin{latex}
+%   \thusetup{
+%     figure-number-separator = {-},
+%     table-number-separator = {-},
+%     equation-number-separator = {-},
+%   }
+% \end{latex}
+% \DescribeOption{number-separator}
+% 也可以使用 \option{number-separator} 同时设置图、表、公式三项的编号连接符，
+% 比如 |\thusetup{number-separator = -}|。
+%
+% 本科生要求“附录中图、表、公式的编号，应与正文中的编号区分开”，
+% 应理解为将章号改变为附录对应的大写字母编号，连接符不宜改变。
 %
 % \subsubsection{数学符号}
 % \label{sec:math}
-% 数学符号应遵循 GB/T 3102.11—1993《物理科学和技术中使用的数学符号》
-% 模板中使用 \pkg{unicode-math} 宏包来配置数学符号，
-% 与 \LaTeX{} 默认的英美国家的符号习惯有所差异：
+% 中文论文的数学符号默认遵循 GB/T 3102.11—1993《物理科学和技术中使用的数学符号》
+% \footnote{原 GB 3102.11—1993，自 2017 年 3 月 23 日起，该标准转为推荐性标准。}。
+% 该标准参照采纳 ISO 31-11:1992 \footnote{目前已更新为 ISO 80000-2:2019。}，
+% 但是与 \TeX{} 默认的美国数学学会（AMS）的习惯有许多差异。
+% 这将在下文详细论述。
+%
+% \DescribeOption{math-style}
+% 用户可以通过设置 \option{math-style} 选择数学符号样式（可选：
+% \option{GB}（中文默认），\option{TeX}（英文默认）和 \option{ISO}），比如：
+% \begin{latex}
+%   \thusetup{
+%     math-style = ISO,
+%   }
+% \end{latex}
+%
+% 用户也可以逐项修改数学样式。
 % \newcommand\dif{\mathop{}\!\mathrm{d}}
 % \begin{enumerate}
-%   \item 大写希腊字母默认为斜体，如 \cs{Delta}：$\Delta$。
-%   \item 有限增量符号 $\increment$（U+2206）应使用 \pkg{unicode-math} 宏包提供的
-%     \cs{increment} 命令。
-%   \item 向量、矩阵和张量要求粗斜体，应使用 \cs{symbf} 命令，
-%     如 \verb|\symbf{A}|、\verb|\symbf{\alpha}|。
-%   \item 数学常数和特殊函数要求用正体，应使用 \cs{symup} 命令，
-%     如 $\symup{\pi} = 3.14\dots$; $\symup{e} = 2.718\dots$，
-%   \item 微分号和积分号使用使用正体，比如 $\int f(x) \dif x$。
+%   \item \DescribeOption{uppercase-greek}
+%     大写希腊字母的正/斜体，可选：\option{italic}、\option{upright}。
+%     有限增量符号 $\increment x$ 固定使用正体，推荐使用 \cs{increment} 表示。
+%   \item \DescribeOption{less-than-or-equal}
+%     小于等于号和大于等于号的字形，可选：\option{slanted}、\option{horizontal}。
+%     这将控制 \cs{le}、\cs{ge}、\cs{leq} 和 \cs{geq} 的符号
+%     是“$\leqslant$、$\geqslant$”还是“$\leq$、$\geq$”。
+%   \item \DescribeOption{integral}
+%     积分号的正/斜体，可选：\option{upright}、\option{slanted}。
+%     该选项需要字体的支持，目前仅限 \option{xits}、\option{stix}、
+%     \option{libertinus} 和 \option{newcm}。参考下文关于数学字体的选择。
+%   \item \DescribeOption{integral-limits}
+%     积分号上下限的位置，可选：\option{true}（在上下）、\option{false}（在右侧）。
+%     这个设置只影响行间公式，行内公式统一居右侧，不受影响。
+%   \item \DescribeOption{partial}
+%     偏微分符号的正/斜体，可选：\option{upright}、\option{slanted}。
+%   \item \DescribeOption{math-ellipsis}
+%     省略号 \cs{dots} 的样式，可选：\option{centered}（按照中文的习惯固定居中）、
+%     \option{lower} 和 \option{AMS}（取决于前后符号的位置）。
+%     其他的省略号命令如 \cs{lots}、\cs{cdots} 则不受影响。
+%   \item \DescribeOption{real-part}
+%     实部 \cs{Re} 和虚部 \cs{Im} 的字体，可选：\option{roman} 和 \option{fraktur}。
 % \end{enumerate}
 %
-% 关于数学符号更多的用法，参考
-% \href{http://mirrors.ctan.org/macros/latex/contrib/unicode-math/unicode-math.pdf}{\pkg{unicode-math}}
-% 宏包的使用说明，
-% 全部数学符号命的令参考
-% \href{http://mirrors.ctan.org/macros/latex/contrib/unicode-math/unimath-symbols.pdf}{\pkg{unimath-symbols}}。
+% 如果数学符号选择国标样式 |math-style = GB|，相当于设置了
+% \begin{latex}
+%   \thusetup{
+%     uppercase-greek    = italic,
+%     less-than-or-equal = slanted,
+%     integral           = upright,
+%     integral-limits    = true,
+%     partial            = upright,
+%     math-ellipsis      = centered,
+%     real-part          = roman,
+%   }
+% \end{latex}
 %
+% 另外，国标的数学样式与 AMS 还有一些差异无法统一设置，需要用户在写作时进行处理。
+% \begin{enumerate}
+%   \item 数学常数和特殊函数名用正体，如 $\uppi = 3.14\dots$；$\symup{i}^2 = -1$；
+%     $\symup{e} = \lim_{n \to \infty} \left( 1 + \frac{1}{n} \right)^n$。
+%   \item 微分号使用正体，比如 $\dif y / \dif x$。
+%   \item 向量、矩阵和张量用粗斜体（\cs{symbf}），如 $\symbf{x}$、$\symbf{\Sigma}$、$\symbfsf{T}$。
+% \end{enumerate}
+%
+% 需要注意，上述关于数学符号风格的设置在设置数学字体（\option{math-font}）时才会生效。
+%
+% \DescribeOption{math-font}
+% 模板使用默认使用 XITS Math 作为数学字体。
+% 用户也可以使用 \option{math-font} 选项切换其他数学字体，可选：
+% \option{stix}（STIX Two Math）、
+% \option{libertinus}（Libertinus Math）、
+% \option{newcm}（New Computer Modern Math）、
+% \option{lm}（Latin Modern Math）。
+%
+% 其中 \option{lm} 和 \option{newcm} 的字形比较搭配 TeX 原生的 Computer Modern 字体，
+% 但与《指南》要求的西文字体 Times New Roman 并不搭配。
+% 可能会造成正文和公式中的数字字体不一致，需要谨慎使用。
+%
+% 以上字体都是 OpenType 格式的字体，需要配合
+% \href{http://mirrors.ctan.org/macros/latex/contrib/unicode-math/unicode-math.pdf}{\pkg{unicode-math}}
+% 宏包使用。
+% 全部数学符号的命令参考
+% \href{http://mirrors.ctan.org/macros/latex/contrib/unicode-math/unimath-symbols.pdf}{\pkg{unimath-symbols}}。
 % 注意，\pkg{unicode-math} 宏包与 \pkg{amsfonts}、\pkg{amssymb}、\pkg{bm}、
 % \pkg{mathrsfs}、\pkg{upgreek} 等宏包\emph{不}兼容。
 % 模板作了处理，用户可以直接使用这些宏包的命令，如 \cs{bm}、\cs{mathscr}、
 % \cs{uppi}。
+%
+% 另外，模板还为 `math-font` 提供了传统的 Type 1 字体 \option{newtx}。
+% 该选项会调用 \pkg{newtxmath} 宏包。
+% 但是，如果西文字体已经使用了 OpenType 的 Times New Roman，
+% 混用 Type 1 字体可能会导致问题，尤其是使用 \pkg{siunitx} 宏包时。
+% 该选项还处于测试阶段，需要谨慎使用。
 %
 % \subsubsection{定理环境}
 % \label{sec:theorem}
@@ -958,22 +1068,28 @@
 %
 % \subsubsection{声明}
 % \DescribeMacro{\statement}
-% 如果使用声明扫描页，将可选参数指定为扫描后的 PDF 文件名，例如：
+% 直接使用 \cs{statement} 命令可以编译生成声明页。
+% 如果要插入扫描后的声明页，将可选参数指定为扫描后的 PDF 文件名，例如：
 %
 % \begin{latex}
 %   \statement[file=scan-statement.pdf]
 % \end{latex}
 %
-% 由于打印版和电子版有空白页的差别，声明的页码可能不同。
-% 所以编译声明页时默认不加页眉和页脚（\texttt{page-style=empty}），
-% 在签字后插入扫描页时再补上页眉和页脚，防止页码冲突。
+% 由于本科生的打印版和电子版有空白页的差别，声明的页码可能不同。
+% 所以编译生成声明页时默认不加页脚（\option{empty}），
+% 在签字后插入扫描页时再补上页脚（\option{plain}），防止页码冲突。
+% 研究生不存在空白页的问题，在编译生成声明时默认加页眉页脚（\option{plain}），
+% 而插入扫描版时不再重复（\option{empty}）。
 %
-% 如果需要编译时也加页码（如直接对电子版进行签名而不是插入扫描页），
-% 可以使用在 \cs{statement} 命令设置
+% 声明的页眉页脚也可以通过 \option{pagestyle} 参数手动控制，
+% 比如编译生成时固定不加页眉页脚：
 % \begin{latex}
 %   \statement[page-style=plain]
 % \end{latex}
-% 注意，插入扫描页总是会加页码，不受该选项控制。
+% 插入扫面版声明补上页眉页脚：
+% \begin{latex}
+%   \statement[file=scan-statement.pdf, page-style=plain]
+% \end{latex}
 %
 % \subsubsection{附录}
 %
@@ -1133,7 +1249,7 @@
 %    \begin{macrocode}
 %<cls>\NeedsTeXFormat{LaTeX2e}[2017/04/15]
 %<cls>\ProvidesClass{thuthesis}
-%<cls>[2020/10/14 7.1.0 Tsinghua University Thesis Template]
+%<cls>[2021/04/03 7.2.2 Tsinghua University Thesis Template]
 %    \end{macrocode}
 %
 % 报错
@@ -1189,7 +1305,7 @@
 %<*cls>
 \hyphenation{Thu-Thesis}
 \def\thuthesis{ThuThesis}
-\def\version{7.1.0}
+\def\version{7.2.2}
 \RequirePackage{kvdefinekeys}
 \RequirePackage{kvsetkeys}
 \RequirePackage{kvoptions}
@@ -1202,8 +1318,11 @@
 % \begin{macro}{\thusetup}
 % 提供一个 \cs{thusetup} 命令支持 \emph{key-value} 的方式来设置。
 %    \begin{macrocode}
+\let\thu@setup@hook\@empty
 \newcommand\thusetup[1]{%
+  \let\thu@setup@hook\@empty
   \kvsetkeys{thu}{#1}%
+  \thu@setup@hook
 }
 %    \end{macrocode}
 % \end{macro}
@@ -1331,6 +1450,14 @@
 %
 %    \begin{macrocode}
 \thu@define@key{
+  thesis-type = {
+    name = thesis@type,
+    choices = {
+      thesis,
+      proposal,
+    },
+    default = thesis,
+  },
   degree = {
     choices = {
       bachelor,
@@ -1372,33 +1499,37 @@
 %
 % 字体
 %    \begin{macrocode}
+  system = {
+    choices = {
+      auto,
+      mac,
+      unix,
+      windows,
+    },
+    default = auto,
+  },
   fontset = {
     choices = {
+      auto,
       windows,
       mac,
       ubuntu,
       fandol,
       none,
     },
-    default = none,
-  },
-  system = {
-    choices = {
-      mac,
-      unix,
-      windows,
-      auto,
-    },
     default = auto,
   },
   font = {
     choices = {
+      auto,
       times,
       termes,
+      stix,
       xits,
       libertinus,
+      newcm,
       lm,
-      auto,
+      newtx,
       none,
     },
     default = auto,
@@ -1406,11 +1537,11 @@
   cjk-font = {
     name = cjk@font,
     choices = {
+      auto,
       windows,
       mac,
       noto,
       fandol,
-      auto,
       none,
     },
     default = auto,
@@ -1418,13 +1549,72 @@
   math-font = {
     name = math@font,
     choices = {
-      xits,
+      auto,
       stix,
+      xits,
       libertinus,
+      newcm,
       lm,
+      newtx,
       none,
     },
-    default = xits,
+    default = auto,
+  },
+  math-style = {
+    name = math@style,
+    choices = {
+      GB,
+      ISO,
+      TeX,
+    },
+  },
+  uppercase-greek = {
+    name = uppercase@greek,
+    choices = {
+      italic,
+      upright,
+    },
+  },
+  less-than-or-equal = {
+    name = leq,
+    choices = {
+      slanted,
+      horizontal,
+    },
+  },
+  integral = {
+    choices = {
+      upright,
+      slanted,
+    },
+  },
+  integral-limits = {
+    name = integral@limits,
+    choices = {
+      true,
+      false,
+    },
+  },
+  partial = {
+    choices = {
+      upright,
+      italic,
+    },
+  },
+  math-ellipsis = {
+    name = math@ellipsis,
+    choices = {
+      centered,
+      lower,
+      AMS,
+    },
+  },
+  real-part = {
+    name = real@part,
+    choices = {
+      roman,
+      fraktur,
+    },
   },
 %    \end{macrocode}
 %
@@ -1484,9 +1674,13 @@
 \fi
 %    \end{macrocode}
 %
+% \pkg{unicode-math} 和 \pkg{newtx} 都不需要 \pkg{fontspec} 设置数学字体。
+%    \begin{macrocode}
+\PassOptionsToPackage{no-math}{fontspec}
+%    \end{macrocode}
+%
 % 使用 \pkg{ctexbook} 类，优于调用 \pkg{ctex} 宏包。
 %    \begin{macrocode}
-\PassOptionsToPackage{quiet}{fontspec}
 \LoadClass[a4paper,UTF8,zihao=-4,scheme=plain,fontset=none]{ctexbook}[2017/04/01]
 %    \end{macrocode}
 %
@@ -1522,11 +1716,6 @@
 % \AmSTeX\ 宏包，用来排出更加漂亮的公式。
 %    \begin{macrocode}
 \RequirePackage{amsmath}
-%    \end{macrocode}
-%
-% 使用 \pkg{unicode-math} 处理数学字体。
-%    \begin{macrocode}
-\RequirePackage{unicode-math}
 %    \end{macrocode}
 %
 % 图形支持宏包。
@@ -1602,11 +1791,23 @@
 %
 % 对冲突的宏包报错。
 %    \begin{macrocode}
-\newcommand\thu@package@conflict[2]{
-  \AtBeginOfPackageFile*{#2}{
-    \thu@error{The "#2" package is incompatible with required "#1"}
-  }
+\newcommand\thu@package@conflict[2]{%
+  \AtEndOfPackageFile*{#1}{%
+    \AtBeginOfPackageFile*{#2}{%
+      \thu@error{The "#2" package is incompatible with "#1"}%
+    }%
+  }%
 }
+\thu@package@conflict{biblatex}{bibunits}
+\thu@package@conflict{biblatex}{chapterbib}
+\thu@package@conflict{biblatex}{cite}
+\thu@package@conflict{biblatex}{multibib}
+\thu@package@conflict{biblatex}{natbib}
+
+\thu@package@conflict{bibunits}{biblatex}
+\thu@package@conflict{bibunits}{chapterbib}
+\thu@package@conflict{bibunits}{multibib}
+
 \thu@package@conflict{unicode-math}{amscd}
 \thu@package@conflict{unicode-math}{amsfonts}
 \thu@package@conflict{unicode-math}{amssymb}
@@ -1615,8 +1816,36 @@
 \thu@package@conflict{unicode-math}{eucal}
 \thu@package@conflict{unicode-math}{eufrak}
 \thu@package@conflict{unicode-math}{mathrsfs}
+\thu@package@conflict{unicode-math}{newtxmath}
+\thu@package@conflict{unicode-math}{upgreek}
+
+\thu@package@conflict{natbib}{biblatex}
+\thu@package@conflict{natbib}{cite}
+
+\thu@package@conflict{newtxmath}{amsfonts}
+\thu@package@conflict{newtxmath}{amssymb}
+\thu@package@conflict{newtxmath}{unicode-math}
+\thu@package@conflict{newtxmath}{upgreek}
 %    \end{macrocode}
 %
+% \pkg{mathtools} 需要在 \pkg{unicode-math} 前载入，
+% 参考 \url{https://tex.stackexchange.com/q/521394/82731}。
+%    \begin{macrocode}
+\AtBeginOfPackageFile*{mathtools}{
+  \@ifpackageloaded{unicode-math}{
+    \thu@error{The "mathtools" package should be loaded before setting "math-font"}
+  }{}
+}%
+%    \end{macrocode}
+%
+% \pkg{amsthm} 需要在 \pkg{newtx} 前载入，参考 \pkg{newtx} 的文档。
+%    \begin{macrocode}
+\AtBeginOfPackageFile*{amsthm}{
+  \@ifpackageloaded{newtxmath}{
+    \thu@error{The "amsthm" package should be loaded before setting "newtxmath"}
+  }{}
+}%
+%    \end{macrocode}
 %
 % \subsection{页面设置}
 % \label{sec:layout}
@@ -1671,564 +1900,8 @@
 \thu@option@hook{output}{\thu@set@geometry}
 %    \end{macrocode}
 %
-% \subsection{主文档格式}
-% \label{sec:mainbody}
 %
-% \subsubsection{Three matters}
-% \begin{macro}{\cleardoublepage}
-% 对于 \textsl{openright} 选项，必须保证章首页右开，且如果前章末页无内容须
-% 清空其页眉页脚。
-%    \begin{macrocode}
-\def\cleardoublepage{%
-  \clearpage
-  \if@twoside
-    \ifthu@output@print
-      \ifodd\c@page
-      \else
-        \thispagestyle{empty}%
-        \hbox{}%
-        \newpage
-        \if@twocolumn
-          \hbox{}\newpage
-        \fi
-      \fi
-    \fi
-  \fi
-}
-%    \end{macrocode}
-% \end{macro}
-%
-% \begin{macro}{\frontmatter}
-% \begin{macro}{\mainmatter}
-% \begin{macro}{\backmatter}
-% 我们的单面和双面模式与常规的不太一样。
-%    \begin{macrocode}
-\renewcommand\frontmatter{%
-  \cleardoublepage
-  \@mainmatterfalse
-  \pagenumbering{Roman}%
-}
-\renewcommand\mainmatter{%
-  \cleardoublepage
-  \@mainmattertrue
-  \pagenumbering{arabic}%
-}
-\renewcommand\backmatter{%
-  \if@openright
-    \cleardoublepage
-  \else
-    \clearpage
-  \fi
-  \@mainmatterfalse
-  \thusetup{toc-depth = 0}%
-}
-%    \end{macrocode}
-% \end{macro}
-% \end{macro}
-% \end{macro}
-%
-% \subsubsection{字体}
-% \label{sec:font}
-% 使用 \pkg{fontspec} 配置字体。
-%    \begin{macrocode}
-\ifthu@fontset@mac
-  \thusetup{
-    font     = times,
-    cjk-font = mac,
-  }
-\else
-  \ifthu@fontset@windows
-    \thusetup{
-      font     = times,
-      cjk-font = windows,
-    }
-  \else
-    \ifthu@fontset@fandol
-      \thusetup{
-        font     = termes,
-        cjk-font = fandol,
-      }
-    \else
-      \ifthu@fontset@ubuntu
-        \thusetup{
-          font     = termes,
-          cjk-font = noto,
-        }
-      \fi
-    \fi
-  \fi
-\fi
-%    \end{macrocode}
-%
-% 检测系统
-%    \begin{macrocode}
-\ifthu@system@auto
-  \IfFileExists{/System/Library/Fonts/Menlo.ttc}{
-    \thusetup{system = mac}
-  }{
-    \IfFileExists{/dev/null}{
-      \IfFileExists{null:}{
-        \thusetup{system = windows}
-      }{
-        \thusetup{system = unix}
-      }
-    }{
-      \thusetup{system = windows}
-    }
-  }
-\fi
-%    \end{macrocode}
-%
-% XITS 字体于 2018-10-03 更改了字体的文件名，所以需要判断。
-% 原文件名为 \file{xits-regular.otf}、\file{xits-math.otf} 等，
-% 后改为 \file{XITS-Regular.otf}、\file{XITSMath-Regular.otf} 等。
-%
-% Libertinus 字体同样。
-%    \begin{macrocode}
-\let\thu@font@family@xits\@empty
-\newcommand\thu@set@xits@names{%
-  \ifx\thu@font@family@xits\@empty
-    \IfFontExistsTF{XITSMath-Regular.otf}{%
-      \gdef\thu@font@family@xits{XITS}%
-      \gdef\thu@font@style@xits@rm{Regular}%
-      \gdef\thu@font@style@xits@bf{Bold}%
-      \gdef\thu@font@style@xits@it{Italic}%
-      \gdef\thu@font@style@xits@bfit{BoldItalic}%
-      \gdef\thu@font@name@xits@math@rm{XITSMath-Regular}%
-      \gdef\thu@font@name@xits@math@bf{XITSMath-Bold}%
-    }{%
-      \gdef\thu@font@family@xits{xits}%
-      \gdef\thu@font@style@xits@rm{regular}%
-      \gdef\thu@font@style@xits@bf{bold}%
-      \gdef\thu@font@style@xits@it{italic}%
-      \gdef\thu@font@style@xits@bfit{bolditalic}%
-      \gdef\thu@font@name@xits@math@rm{xits-math}%
-      \gdef\thu@font@name@xits@math@bf{xits-mathbold}%
-    }%
-  \fi
-}
-\let\thu@font@family@libertinus\@empty
-\newcommand\thu@set@libertinus@names{%
-  \ifx\thu@font@family@libertinus\@empty
-    \IfFontExistsTF{LibertinusSerif-Regular.otf}{%
-      \gdef\thu@font@family@libertinus@serif{LibertinusSerif}%
-      \gdef\thu@font@family@libertinus@sans{LibertinusSans}%
-      \gdef\thu@font@name@libertinus@math{LibertinusMath-Regular}%
-      \gdef\thu@font@style@libertinus@rm{Regular}%
-      \gdef\thu@font@style@libertinus@bf{Bold}%
-      \gdef\thu@font@style@libertinus@it{Italic}%
-      \gdef\thu@font@style@libertinus@bfit{BoldItalic}%
-    }{%
-      \gdef\thu@font@family@libertinus@serif{libertinusserif}%
-      \gdef\thu@font@family@libertinus@sans{libertinussans}%
-      \gdef\thu@font@name@libertinus@math{libertinusmath-regular}%
-      \gdef\thu@font@style@libertinus@rm{regular}%
-      \gdef\thu@font@style@libertinus@bf{bold}%
-      \gdef\thu@font@style@libertinus@it{italic}%
-      \gdef\thu@font@style@libertinus@bfit{bolditalic}%
-    }%
-  \fi
-}
-%    \end{macrocode}
-%
-% 《撰写手册》要求西文字体使用 Times New Roman 和 Arial，
-% 但是在 Linux 下没有这两个字体，所以使用它们的克隆版 TeX Gyre Termes 和
-% TeX Gyre Heros。
-%    \begin{macrocode}
-\ifthu@font@auto
-  \ifthu@system@unix
-    \thusetup{font=termes}
-  \else
-    \thusetup{font=times}
-  \fi
-\fi
-\newcommand\thu@load@font@times{%
-  \setmainfont{Times New Roman}%
-  \setsansfont{Arial}%
-  \ifthu@system@mac
-    \setmonofont{Menlo}[Scale = MatchLowercase]%
-  \else
-    \setmonofont{Courier New}[Scale = MatchLowercase]%
-  \fi
-}
-\newcommand\thu@load@font@termes{%
-  \setmainfont{texgyretermes}[
-    Extension      = .otf,
-    UprightFont    = *-regular,
-    BoldFont       = *-bold,
-    ItalicFont     = *-italic,
-    BoldItalicFont = *-bolditalic,
-  ]%
-  \thu@load@texgyre@sans@mono
-}
-\newcommand\thu@load@texgyre@sans@mono{%
-  \setsansfont{texgyreheros}[
-    Extension      = .otf,
-    UprightFont    = *-regular,
-    BoldFont       = *-bold,
-    ItalicFont     = *-italic,
-    BoldItalicFont = *-bolditalic,
-  ]%
-  \setmonofont{texgyrecursor}[
-    Extension      = .otf,
-    UprightFont    = *-regular,
-    BoldFont       = *-bold,
-    ItalicFont     = *-italic,
-    BoldItalicFont = *-bolditalic,
-    Ligatures      = CommonOff,
-  ]%
-}
-\newcommand\thu@load@font@xits{%
-  \thu@set@xits@names
-  \setmainfont{\thu@font@family@xits}[
-    Extension      = .otf,
-    UprightFont    = *-\thu@font@style@xits@rm,
-    BoldFont       = *-\thu@font@style@xits@bf,
-    ItalicFont     = *-\thu@font@style@xits@it,
-    BoldItalicFont = *-\thu@font@style@xits@bfit,
-  ]%
-  \thu@load@texgyre@sans@mono
-}
-\newcommand\thu@load@font@libertinus{%
-  \thu@set@libertinus@names
-  \setmainfont{\thu@font@family@libertinus@serif}[
-    Extension      = .otf,
-    UprightFont    = *-\thu@font@style@libertinus@rm,
-    BoldFont       = *-\thu@font@style@libertinus@bf,
-    ItalicFont     = *-\thu@font@style@libertinus@it,
-    BoldItalicFont = *-\thu@font@style@libertinus@bfit,
-  ]%
-  \setsansfont{\thu@font@family@libertinus@sans}[
-    Extension      = .otf,
-    UprightFont    = *-\thu@font@style@libertinus@rm,
-    BoldFont       = *-\thu@font@style@libertinus@bf,
-    ItalicFont     = *-\thu@font@style@libertinus@it,
-  ]%
-  \setmonofont{lmmonolt10}[
-    Extension      = .otf,
-    UprightFont    = *-regular,
-    BoldFont       = *-bold,
-    ItalicFont     = *-oblique,
-    BoldItalicFont = *-boldoblique,
-  ]%
-}
-\@namedef{thu@load@font@lm}{%
-  \setmainfont{lmroman10}[
-    Extension      = .otf,
-    UprightFont    = *-regular,
-    BoldFont       = *-bold,
-    ItalicFont     = *-italic,
-    BoldItalicFont = *-bolditalic,
-  ]%
-  \setsansfont{lmsans10}[
-    Extension      = .otf,
-    UprightFont    = *-regular,
-    BoldFont       = *-bold,
-    ItalicFont     = *-oblique,
-    BoldItalicFont = *-boldoblique,
-  ]%
-  \setmonofont{lmmonolt10}[
-    Extension      = .otf,
-    UprightFont    = *-regular,
-    BoldFont       = *-bold,
-    ItalicFont     = *-oblique,
-    BoldItalicFont = *-boldoblique,
-  ]%
-}
-\newcommand\thu@load@font{%
-  \@nameuse{thu@load@font@\thu@font}%
-}
-\thu@load@font
-\thu@option@hook{font}{\thu@load@font}
-%    \end{macrocode}
-%
-% 使用 \pkg{unicode-math} 配置数学字体
-%    \begin{macrocode}
-\unimathsetup{
-  math-style = ISO,
-  bold-style = ISO,
-  nabla      = upright,
-  partial    = upright,
-}
-\newcommand\thu@load@math@font@xits{%
-  \thu@set@xits@names
-  \setmathfont{\thu@font@name@xits@math@rm}[
-    Extension    = .otf,
-    BoldFont     = \thu@font@name@xits@math@bf,
-    StylisticSet = 8,
-  ]%
-  \setmathfont{\thu@font@name@xits@math@rm}[
-    Extension    = .otf,
-    StylisticSet = 1,
-    range        = {cal,bfcal},
-  ]%
-}
-\newcommand\thu@load@math@font@stix{%
-  \setmathfont{STIX2Math}[
-    Extension    = .otf,
-    StylisticSet = 8,
-  ]%
-  \setmathfont{STIX2Math}[
-    Extension    = .otf,
-    StylisticSet = 1,
-    range        = {cal,bfcal},
-  ]%
-}
-\newcommand\thu@load@math@font@libertinus{%
-  \thu@set@libertinus@names
-  \setmathfont{\thu@font@name@libertinus@math .otf}%
-}
-\newcommand\thu@load@math@font@lm{%
-  \setmathfont{latinmodern-math.otf}%
-}
-\newcommand\thu@load@math@font{%
-  \@nameuse{thu@load@math@font@\thu@math@font}
-}
-\thu@load@math@font
-\thu@option@hook{math-font}{\thu@load@math@font}
-%    \end{macrocode}
-%
-% 中文字体
-%    \begin{macrocode}
-\ifthu@cjk@font@auto
-  \ifthu@system@mac
-    \thusetup{cjk-font = mac}
-  \else
-    \ifthu@system@windows
-      \thusetup{cjk-font = windows}
-    \else
-      \IfFontExistsTF{Noto Serif CJK SC}{
-        \thusetup{cjk-font = noto}
-      }{
-        \thusetup{cjk-font = fandol}
-      }
-    \fi
-  \fi
-\fi
-\newcommand\thu@load@cjk@font@windows{%
-  \xeCJKsetup{EmboldenFactor=3}%
-  \setCJKmainfont{SimSun}[
-    AutoFakeBold = true,
-    ItalicFont   = KaiTi,
-  ]%
-  \setCJKsansfont{SimHei}[AutoFakeBold]%
-  \setCJKmonofont{FangSong}%
-  \setCJKfamilyfont{zhsong}{SimSun}[AutoFakeBold]%
-  \setCJKfamilyfont{zhhei}{SimHei}[AutoFakeBold]%
-  \setCJKfamilyfont{zhkai}{KaiTi}%
-  \setCJKfamilyfont{zhfs}{FangSong}%
-}
-\newcommand\thu@load@cjk@font@mac{%
-  \setCJKmainfont{Songti SC}[
-    UprightFont    = * Light,
-    BoldFont       = * Bold,
-    ItalicFont     = Kaiti SC,
-    BoldItalicFont = Kaiti SC Bold,
-  ]%
-  \setCJKsansfont{Heiti SC}[BoldFont=* Medium]%
-  \setCJKmonofont{STFangsong}
-  \setCJKfamilyfont{zhsong}{Songti SC}[
-    UprightFont = * Light,
-      BoldFont  = * Bold,
-  ]%
-  \setCJKfamilyfont{zhhei}{Heiti SC}[
-    UprightFont = * Light,
-    BoldFont    = * Medium,
-  ]%
-  \setCJKfamilyfont{zhfs}{STFangsong}%
-  \setCJKfamilyfont{zhkai}{Kaiti SC}[BoldFont = * Bold]%
-  \setCJKfamilyfont{zhli}{Baoli SC}%
-  \setCJKfamilyfont{zhyuan}{Yuanyi SC}[
-    UprightFont = * Light,
-    BoldFont    = * Bold,
-  ]%
-}
-%    \end{macrocode}
-%
-% 注意 Noto CJK 的 regular 字重名字不带“Regular”。
-%    \begin{macrocode}
-\newcommand\thu@load@cjk@font@noto{%
-  \setCJKmainfont{Noto Serif CJK SC}[
-    UprightFont    = * Light,
-    BoldFont       = * Bold,
-    ItalicFont     = FandolKai-Regular,
-    ItalicFeatures = {Extension = .otf},
-  ]%
-  \setCJKsansfont{Noto Sans CJK SC}[
-    BoldFont    = * Medium,
-  ]%
-  \setCJKmonofont{Noto Sans Mono CJK SC}%
-  \setCJKfamilyfont{zhsong}{Noto Serif CJK SC}[
-    UprightFont = * Light,
-    UprightFont = * Bold,
-  ]%
-  \setCJKfamilyfont{zhhei}{Noto Sans CJK SC}[
-    BoldFont    = * Medium,
-  ]%
-  \setCJKfamilyfont{zhfs}{FandolFang}[
-    Extension   = .otf,
-    UprightFont = *-Regular,
-  ]%
-  \setCJKfamilyfont{zhkai}{FandolKai}[
-    Extension   = .otf,
-    UprightFont = *-Regular,
-  ]%
-}
-\newcommand\thu@load@cjk@font@fandol{%
-  \setCJKmainfont{FandolSong}[
-    Extension   = .otf,
-    UprightFont = *-Regular,
-    BoldFont    = *-Bold,
-    ItalicFont  = FandolKai-Regular,
-  ]%
-  \setCJKsansfont{FandolHei}[
-    Extension   = .otf,
-    UprightFont = *-Regular,
-    BoldFont    = *-Bold,
-  ]%
-  \setCJKmonofont{FandolFang}[
-    Extension   = .otf,
-    UprightFont = *-Regular,
-  ]%
-  \setCJKfamilyfont{zhsong}{FandolSong}[
-    Extension   = .otf,
-    UprightFont = *-Regular,
-    BoldFont    = *-Bold,
-  ]%
-  \setCJKfamilyfont{zhhei}{FandolHei}[
-    Extension   = .otf,
-    UprightFont = *-Regular,
-    BoldFont    = *-Bold,
-  ]%
-  \setCJKfamilyfont{zhfs}{FandolFang}[
-    Extension   = .otf,
-    UprightFont = *-Regular,
-  ]%
-  \setCJKfamilyfont{zhkai}{FandolKai}[
-    Extension   = .otf,
-    UprightFont = *-Regular,
-  ]%
-}
-\ifthu@cjk@font@none\else
-  \providecommand\songti{\CJKfamily{zhsong}}
-  \providecommand\heiti{\CJKfamily{zhhei}}
-  \providecommand\fangsong{\CJKfamily{zhfs}}
-  \providecommand\kaishu{\CJKfamily{zhkai}}
-\fi
-\newcommand\thu@load@cjk@font{%
-  \@nameuse{thu@load@cjk@font@\thu@cjk@font}%
-}
-\thu@load@cjk@font
-\thu@option@hook{cjk-font}{\thu@load@cjk@font}
-%    \end{macrocode}
-%
-% \begin{macro}{\normalsize}
-% 正文小四号 (12bp) 字，行距为固定值 20 bp。
-% 其他字号的行距按照相同的比例设置。
-%
-% 表达式行的行距为单倍行距，段前空 6 磅，段后空 6 磅。
-%    \begin{macrocode}
-\renewcommand\normalsize{%
-  \@setfontsize\normalsize{12bp}{20bp}%
-  \abovedisplayskip 6bp%
-  \abovedisplayshortskip 6bp%
-  \belowdisplayshortskip 6bp%
-  \belowdisplayskip \abovedisplayskip
-}
-\normalsize
-\ifx\MakeRobust\@undefined \else
-    \MakeRobust\normalsize
-\fi
-\DeclareRobustCommand\small{%
-   \@setfontsize\small{10.5bp}{17.5bp}%
-   \abovedisplayskip 6bp%
-   \abovedisplayshortskip 6bp%
-   \belowdisplayshortskip 6bp%
-   \def\@listi{\leftmargin\leftmargini
-               \topsep \z@skip
-               \parsep \z@skip
-               \itemsep \z@skip}%
-   \belowdisplayskip \abovedisplayskip
-}
-\DeclareRobustCommand\footnotesize{%
-   \@setfontsize\footnotesize{9bp}{15bp}%
-   \abovedisplayskip 6bp%
-   \abovedisplayshortskip 6bp%
-   \belowdisplayshortskip 6bp%
-   \def\@listi{\leftmargin\leftmargini
-               \topsep \z@skip
-               \parsep \z@skip
-               \itemsep \z@skip}%
-   \belowdisplayskip \abovedisplayskip
-}
-\DeclareRobustCommand\scriptsize{\@setfontsize\scriptsize{7.5bp}{12.5bp}}
-\DeclareRobustCommand\tiny{\@setfontsize\tiny{6.5bp}{10.83bp}}
-\DeclareRobustCommand\large{\@setfontsize\large{15bp}{25bp}}
-\DeclareRobustCommand\Large{\@setfontsize\Large{18bp}{30bp}}
-\DeclareRobustCommand\LARGE{\@setfontsize\LARGE{22bp}{36.67bp}}
-\DeclareRobustCommand\huge{\@setfontsize\huge{24bp}{40bp}}
-\DeclareRobustCommand\Huge{\@setfontsize\Huge{26bp}{43.33bp}}
-%    \end{macrocode}
-% \end{macro}
-%
-% WORD 中的字号对应该关系如下（1bp = 72.27/72 pt）:
-% \begin{center}
-% \begin{longtable}{llll}
-% \toprule
-% 初号 & 42bp & 14.82mm & 42.1575pt \\
-% 小初 & 36bp & 12.70mm & 36.135 pt \\
-% 一号 & 26bp & 9.17mm & 26.0975pt \\
-% 小一 & 24bp & 8.47mm & 24.09pt \\
-% 二号 & 22bp & 7.76mm & 22.0825pt \\
-% 小二 & 18bp & 6.35mm & 18.0675pt \\
-% 三号 & 16bp & 5.64mm & 16.06pt \\
-% 小三 & 15bp & 5.29mm & 15.05625pt \\
-% 四号 & 14bp & 4.94mm & 14.0525pt \\
-% 小四 & 12bp & 4.23mm & 12.045pt \\
-% 五号 & 10.5bp & 3.70mm & 10.59375pt \\
-% 小五 & 9bp & 3.18mm & 9.03375pt \\
-% 六号 & 7.5bp & 2.56mm & \\
-% 小六 & 6.5bp & 2.29mm & \\
-% 七号 & 5.5bp & 1.94mm & \\
-% 八号 & 5bp & 1.76mm & \\\bottomrule
-% \end{longtable}
-% \end{center}
-%
-% \begin{macro}{\thu@def@fontsize}
-% 根据习惯定义字号。用法：
-%
-% \cs{thu@def@fontsize}\marg{字号名称}\marg{磅数}
-%
-% 避免了字号选择和行距的紧耦合。所有字号定义时为单倍行距，并提供选项指定行距倍数。
-%    \begin{macrocode}
-\def\thu@def@fontsize#1#2{%
-  \expandafter\newcommand\csname #1\endcsname[1][1.3]{%
-    \fontsize{#2}{##1\dimexpr #2}\selectfont}}
-%    \end{macrocode}
-% \end{macro}
-%
-% 一组字号定义。
-%    \begin{macrocode}
-\thu@def@fontsize{chuhao}{42bp}
-\thu@def@fontsize{xiaochu}{36bp}
-\thu@def@fontsize{yihao}{26bp}
-\thu@def@fontsize{xiaoyi}{24bp}
-\thu@def@fontsize{erhao}{22bp}
-\thu@def@fontsize{xiaoer}{18bp}
-\thu@def@fontsize{sanhao}{16bp}
-\thu@def@fontsize{xiaosan}{15bp}
-\thu@def@fontsize{sihao}{14bp}
-\thu@def@fontsize{xiaosi}{12bp}
-\thu@def@fontsize{wuhao}{10.5bp}
-\thu@def@fontsize{xiaowu}{9bp}
-\thu@def@fontsize{liuhao}{7.5bp}
-\thu@def@fontsize{xiaoliu}{6.5bp}
-\thu@def@fontsize{qihao}{5.5bp}
-\thu@def@fontsize{bahao}{5bp}
-%    \end{macrocode}
-%
-%
-% \subsubsection{语言设置}
+% \subsection{语言设置}
 %
 % 定义 \cs{thu@main@language}，当在导言区修改 \option{language} 时，
 % 保存为论文的主要语言；
@@ -2243,8 +1916,8 @@
   \fi
 }
 \newcommand\thu@reset@main@language{%
-    \thusetup{language = \thu@main@language}%
-    \let\thu@language\thu@main@language
+  \thusetup{language = \thu@main@language}%
+  \let\thu@language\thu@main@language
 }
 %    \end{macrocode}
 %
@@ -2253,19 +1926,18 @@
 %    \begin{macrocode}
 \newcommand\thu@set@chapter@names{%
   \ifthu@main@language@chinese
-    \ctexset{
-      chapter/name   = {第,章},
-    }%
+    \def\thu@comments@name{指导教师学术评语}%
     \def\bibname{参考文献}%
     \def\appendixname{附录}%
     \def\indexname{索引}%
-    \def\thu@acknowledgements@name{致\quad 谢}%
+    \def\thu@resolution@name{答辩委员会决议书}%
     \ifthu@degree@bachelor
-      \def\contentsname{目\quad 录}%
+      \def\contentsname{目\qquad 录}%
       \def\listfigurename{插图索引}%
       \def\listtablename{表格索引}%
       \def\thu@list@figure@table@name{插图和附表索引}%
       \def\thu@list@algorithm@name{算法索引}%
+      \def\thu@acknowledgements@name{致\qquad 谢}%
       \def\listequationname{公式索引}%
       \def\thu@denotation@name{主要符号对照表}%
       \def\thu@resume@name{在学期间参加课题的研究成果}%
@@ -2275,6 +1947,7 @@
       \def\thu@list@figure@table@name{插图和附表清单}%
       \def\thu@list@algorithm@name{算法清单}%
       \def\listequationname{公式清单}%
+      \def\thu@acknowledgements@name{致\quad 谢}%
       \ifthu@degree@graduate
         \def\contentsname{目\quad 录}%
         \def\thu@denotation@name{符号和缩略语说明}%
@@ -2287,9 +1960,8 @@
     \fi
   \else
     \ifthu@main@language@english
-      \ctexset{
-        chapter/name   = \chaptername\space,
-      }%
+      \def\thu@comments@name{Comments from Thesis Supervisor}%
+      \def\thu@resolution@name{Resolution of Thesis Defense Committee}%
       \def\indexname{Index}%
       \ifthu@degree@bachelor
         \def\contentsname{CONTENTS}%
@@ -2304,17 +1976,17 @@
         \def\thu@acknowledgements@name{ACKNOWLEDGEMENTS}%
         \def\thu@resume@name{PUBLICATIONS}%
       \else
-        \def\contentsname{Contents}%
+        \def\contentsname{Table of Contents}%
         \def\listfigurename{List of Figures}%
         \def\listtablename{List of Tables}%
         \def\thu@list@figure@table@name{List of Figures and Tables}%
         \def\thu@list@algorithm@name{List of Algorithms}%
         \def\listequationname{List of Equations}%
-        \def\thu@denotation@name{Nomenclature}%
-        \def\bibname{Bibliography}%
+        \def\thu@denotation@name{List of Symbols and Acronyms}%
+        \def\bibname{References}%
         \def\appendixname{Appendix}%
         \def\thu@acknowledgements@name{Acknowledgements}%
-        \def\thu@resume@name{Resume and Academic Achievements}%
+        \def\thu@resume@name{Resume}%
       \fi
     \fi
   \fi
@@ -2419,6 +2091,995 @@
 \thu@option@hook{language}{\thu@set@punctuations}
 %    \end{macrocode}
 %
+% \subsection{字体}
+% \label{sec:font}
+%
+% \subsubsection{字号}
+%
+% \begin{macro}{\normalsize}
+% 正文小四号（12bp）字，行距为固定值 20 bp。
+% 其他字号的行距按照相同的比例设置。
+%
+% 注意重定义 \cs{normalsize} 应在 \pkg{unicode-math} 的 \cs{setmathfont} 前。
+%
+% 表达式行的行距为单倍行距，段前空 6 磅，段后空 6 磅。
+%
+% \cs{small} 等其他命令通常用于表格等环境中，这部分要求单倍行距，与正文的字号-行距比例不同，
+% 所以保留默认的 1.2 倍字号的行距，作为单倍行距在英文（1.15 倍字号）和中文（1.3倍字号）
+% 两种情况的折衷。
+%    \begin{macrocode}
+\renewcommand\normalsize{%
+  \@setfontsize\normalsize{12bp}{20bp}%
+  \abovedisplayskip 6bp%
+  \abovedisplayshortskip 6bp%
+  \belowdisplayshortskip 6bp%
+  \belowdisplayskip \abovedisplayskip
+}
+\normalsize
+\ifx\MakeRobust\@undefined \else
+    \MakeRobust\normalsize
+\fi
+%    \end{macrocode}
+% \end{macro}
+%
+% WORD 中的字号对应该关系如下（1bp = 72.27/72 pt）:
+% \begin{center}
+% \begin{longtable}{llll}
+% \toprule
+% 初号 & 42bp & 14.82mm & 42.1575pt \\
+% 小初 & 36bp & 12.70mm & 36.135 pt \\
+% 一号 & 26bp & 9.17mm & 26.0975pt \\
+% 小一 & 24bp & 8.47mm & 24.09pt \\
+% 二号 & 22bp & 7.76mm & 22.0825pt \\
+% 小二 & 18bp & 6.35mm & 18.0675pt \\
+% 三号 & 16bp & 5.64mm & 16.06pt \\
+% 小三 & 15bp & 5.29mm & 15.05625pt \\
+% 四号 & 14bp & 4.94mm & 14.0525pt \\
+% 小四 & 12bp & 4.23mm & 12.045pt \\
+% 五号 & 10.5bp & 3.70mm & 10.59375pt \\
+% 小五 & 9bp & 3.18mm & 9.03375pt \\
+% 六号 & 7.5bp & 2.56mm & \\
+% 小六 & 6.5bp & 2.29mm & \\
+% 七号 & 5.5bp & 1.94mm & \\
+% 八号 & 5bp & 1.76mm & \\\bottomrule
+% \end{longtable}
+% \end{center}
+%
+% \begin{macro}{\thu@def@fontsize}
+% 根据习惯定义字号。用法：
+%
+% \cs{thu@def@fontsize}\marg{字号名称}\marg{磅数}
+%
+% 避免了字号选择和行距的紧耦合。所有字号定义时为单倍行距，并提供选项指定行距倍数。
+%    \begin{macrocode}
+\def\thu@def@fontsize#1#2{%
+  \expandafter\newcommand\csname #1\endcsname[1][1.3]{%
+    \fontsize{#2}{##1\dimexpr #2}\selectfont}}
+%    \end{macrocode}
+% \end{macro}
+%
+% 一组字号定义。
+%    \begin{macrocode}
+\thu@def@fontsize{chuhao}{42bp}
+\thu@def@fontsize{xiaochu}{36bp}
+\thu@def@fontsize{yihao}{26bp}
+\thu@def@fontsize{xiaoyi}{24bp}
+\thu@def@fontsize{erhao}{22bp}
+\thu@def@fontsize{xiaoer}{18bp}
+\thu@def@fontsize{sanhao}{16bp}
+\thu@def@fontsize{xiaosan}{15bp}
+\thu@def@fontsize{sihao}{14bp}
+\thu@def@fontsize{xiaosi}{12bp}
+\thu@def@fontsize{wuhao}{10.5bp}
+\thu@def@fontsize{xiaowu}{9bp}
+\thu@def@fontsize{liuhao}{7.5bp}
+\thu@def@fontsize{xiaoliu}{6.5bp}
+\thu@def@fontsize{qihao}{5.5bp}
+\thu@def@fontsize{bahao}{5bp}
+%    \end{macrocode}
+%
+% 检测系统。
+%    \begin{macrocode}
+\ifthu@system@auto
+  \IfFileExists{/System/Library/Fonts/Menlo.ttc}{
+    \thusetup{system = mac}
+  }{
+    \IfFileExists{/dev/null}{
+      \IfFileExists{null:}{
+        \thusetup{system = windows}
+      }{
+        \thusetup{system = unix}
+      }
+    }{
+      \thusetup{system = windows}
+    }
+  }
+\fi
+%    \end{macrocode}
+%
+% 使用 \pkg{fontspec} 配置字体。
+%    \begin{macrocode}
+\ifthu@fontset@auto
+  \ifthu@system@windows
+    \thusetup{fontset = windows}
+  \else
+    \IfFontExistsTF{SimSun}{
+      \thusetup{fontset = windows}
+    }{
+      \ifthu@system@mac
+        \thusetup{fontset = mac}
+      \else
+        \IfFontExistsTF{Noto Serif CJK SC}{
+          \thusetup{fontset = ubuntu}
+        }{
+          \thusetup{fontset = fandol}
+        }
+      \fi
+    }
+  \fi
+\fi
+%    \end{macrocode}
+%
+% \subsubsection{西文字体}
+%
+% 《指南》要求西文字体使用 Times New Roman 和 Arial，
+% 但是在 Linux 下没有这两个字体，所以使用它们的克隆版 TeX Gyre Termes 和
+% TeX Gyre Heros。
+%    \begin{macrocode}
+\ifthu@font@auto
+  \ifthu@fontset@windows
+    \thusetup{font=times}
+  \else
+    \ifthu@fontset@mac
+      \thusetup{font=times}
+    \else
+      \thusetup{font=termes}
+    \fi
+  \fi
+\fi
+%    \end{macrocode}
+%
+% Times New Roman + Arial
+%    \begin{macrocode}
+\newcommand\thu@set@font@times{%
+  \setmainfont{Times New Roman}%
+  \setsansfont{Arial}%
+  \ifthu@system@mac
+    \setmonofont{Menlo}[Scale = MatchLowercase]%
+  \else
+    \setmonofont{Courier New}[Scale = MatchLowercase]%
+  \fi
+}
+%    \end{macrocode}
+%
+% TeX Gyre Termes
+%    \begin{macrocode}
+\newcommand\thu@set@font@termes{%
+  \setmainfont{texgyretermes}[
+    Extension      = .otf,
+    UprightFont    = *-regular,
+    BoldFont       = *-bold,
+    ItalicFont     = *-italic,
+    BoldItalicFont = *-bolditalic,
+  ]%
+  \thu@set@texgyre@sans@mono
+}
+\newcommand\thu@set@texgyre@sans@mono{%
+  \setsansfont{texgyreheros}[
+    Extension      = .otf,
+    UprightFont    = *-regular,
+    BoldFont       = *-bold,
+    ItalicFont     = *-italic,
+    BoldItalicFont = *-bolditalic,
+  ]%
+  \setmonofont{texgyrecursor}[
+    Extension      = .otf,
+    UprightFont    = *-regular,
+    BoldFont       = *-bold,
+    ItalicFont     = *-italic,
+    BoldItalicFont = *-bolditalic,
+    Scale          = MatchLowercase,
+    Ligatures      = CommonOff,
+  ]%
+}
+%    \end{macrocode}
+%
+% STIX Two 字体。
+% STIX 文件名在 v2.10 2020-12-19 从
+% \file{STIX2Text-Regular.otf}、\file{STIX2Math.otf} 分别改为
+% \file{STIXTwoText-Regular.otf}、\file{STIXTwoMath-Regular.otf}。
+%    \begin{macrocode}
+\let\thu@font@family@stix\@empty
+\newcommand\thu@set@stix@names{%
+  \ifx\thu@font@family@stix\@empty
+    \IfFontExistsTF{STIXTwoText-Regular.otf}{%
+      \gdef\thu@font@family@stix{STIXTwoText}%
+      \gdef\thu@font@name@stix@math{STIXTwoMath-Regular}%
+    }{%
+      \gdef\thu@font@family@stix{STIX2Text}%
+      \gdef\thu@font@name@stix@math{STIX2Math}%
+    }%
+  \fi
+}
+\newcommand\thu@set@font@stix{%
+  \thu@set@stix@names
+  \setmainfont{\thu@font@family@stix}[
+    Extension      = .otf,
+    UprightFont    = *-Regular,
+    BoldFont       = *-Bold,
+    ItalicFont     = *-Italic,
+    BoldItalicFont = *-BoldItalic,
+  ]%
+  \thu@set@texgyre@sans@mono
+}
+%    \end{macrocode}
+%
+% XITS 字体。
+% XITS 的文件名在 v1.109 2018-09-30
+% 从 \file{xits-regular.otf}、\file{xits-math.otf} 分别改为
+% \file{XITS-Regular.otf}、\file{XITSMath-Regular.otf}。
+%    \begin{macrocode}
+\let\thu@font@family@xits\@empty
+\newcommand\thu@set@xits@names{%
+  \ifx\thu@font@family@xits\@empty
+    \IfFontExistsTF{XITSMath-Regular.otf}{%
+      \gdef\thu@font@family@xits{XITS}%
+      \gdef\thu@font@style@xits@rm{Regular}%
+      \gdef\thu@font@style@xits@bf{Bold}%
+      \gdef\thu@font@style@xits@it{Italic}%
+      \gdef\thu@font@style@xits@bfit{BoldItalic}%
+      \gdef\thu@font@name@xits@math{XITSMath-Regular}%
+    }{%
+      \gdef\thu@font@family@xits{xits}%
+      \gdef\thu@font@style@xits@rm{regular}%
+      \gdef\thu@font@style@xits@bf{bold}%
+      \gdef\thu@font@style@xits@it{italic}%
+      \gdef\thu@font@style@xits@bfit{bolditalic}%
+      \gdef\thu@font@name@xits@math{xits-math}%
+    }%
+  \fi
+}
+\newcommand\thu@set@font@xits{%
+  \thu@set@xits@names
+  \setmainfont{\thu@font@family@xits}[
+    Extension      = .otf,
+    UprightFont    = *-\thu@font@style@xits@rm,
+    BoldFont       = *-\thu@font@style@xits@bf,
+    ItalicFont     = *-\thu@font@style@xits@it,
+    BoldItalicFont = *-\thu@font@style@xits@bfit,
+  ]%
+  \thu@set@texgyre@sans@mono
+}
+%    \end{macrocode}
+%
+% Libertinus 字体。
+% Libertinus 的文件名在 v6.7 2019-04-03 从小写改为驼峰式，
+% 在大小写敏感的平台上需要进行判断。
+%    \begin{macrocode}
+\let\thu@font@family@libertinus\@empty
+\newcommand\thu@set@libertinus@names{%
+  \ifx\thu@font@family@libertinus\@empty
+    \IfFontExistsTF{LibertinusSerif-Regular.otf}{%
+      \gdef\thu@font@family@libertinus@serif{LibertinusSerif}%
+      \gdef\thu@font@family@libertinus@sans{LibertinusSans}%
+      \gdef\thu@font@name@libertinus@math{LibertinusMath-Regular}%
+      \gdef\thu@font@style@libertinus@rm{Regular}%
+      \gdef\thu@font@style@libertinus@bf{Bold}%
+      \gdef\thu@font@style@libertinus@it{Italic}%
+      \gdef\thu@font@style@libertinus@bfit{BoldItalic}%
+    }{%
+      \gdef\thu@font@family@libertinus@serif{libertinusserif}%
+      \gdef\thu@font@family@libertinus@sans{libertinussans}%
+      \gdef\thu@font@name@libertinus@math{libertinusmath-regular}%
+      \gdef\thu@font@style@libertinus@rm{regular}%
+      \gdef\thu@font@style@libertinus@bf{bold}%
+      \gdef\thu@font@style@libertinus@it{italic}%
+      \gdef\thu@font@style@libertinus@bfit{bolditalic}%
+    }%
+  \fi
+}
+\newcommand\thu@set@font@libertinus{%
+  \thu@set@libertinus@names
+  \setmainfont{\thu@font@family@libertinus@serif}[
+    Extension      = .otf,
+    UprightFont    = *-\thu@font@style@libertinus@rm,
+    BoldFont       = *-\thu@font@style@libertinus@bf,
+    ItalicFont     = *-\thu@font@style@libertinus@it,
+    BoldItalicFont = *-\thu@font@style@libertinus@bfit,
+  ]%
+  \setsansfont{\thu@font@family@libertinus@sans}[
+    Extension      = .otf,
+    UprightFont    = *-\thu@font@style@libertinus@rm,
+    BoldFont       = *-\thu@font@style@libertinus@bf,
+    ItalicFont     = *-\thu@font@style@libertinus@it,
+  ]%
+  \setmonofont{lmmonolt10}[
+    Extension      = .otf,
+    UprightFont    = *-regular,
+    BoldFont       = *-bold,
+    ItalicFont     = *-oblique,
+    BoldItalicFont = *-boldoblique,
+  ]%
+}
+%    \end{macrocode}
+%
+% New Computer Modern
+%    \begin{macrocode}
+\newcommand\thu@set@font@newcm{%
+  \setmainfont{NewCM10}[
+    Extension      = .otf,
+    UprightFont    = *-Book,
+    BoldFont       = *-Bold,
+    ItalicFont     = *-BookItalic,
+    BoldItalicFont = *-BoldItalic,
+  ]%
+  \setsansfont{NewCMSans10}[
+    Extension         = .otf,
+    UprightFont       = *-Book,
+    BoldFont          = *-Bold,
+    ItalicFont        = *-BookOblique,
+    BoldItalicFont    = *-BoldOblique,
+  ]%
+  \setmonofont{NewCMMono10}[
+    Extension           = .otf,
+    UprightFont         = *-Book,
+    ItalicFont          = *-BookItalic,
+    BoldFont            = *-Bold,
+    BoldItalicFont      = *-BoldOblique,
+  ]%
+}
+%    \end{macrocode}
+%
+% Latin Modern
+%    \begin{macrocode}
+\newcommand\thu@set@font@lm{%
+  \setmainfont{lmroman10}[
+    Extension      = .otf,
+    UprightFont    = *-regular,
+    BoldFont       = *-bold,
+    ItalicFont     = *-italic,
+    BoldItalicFont = *-bolditalic,
+  ]%
+  \setsansfont{lmsans10}[
+    Extension      = .otf,
+    UprightFont    = *-regular,
+    BoldFont       = *-bold,
+    ItalicFont     = *-oblique,
+    BoldItalicFont = *-boldoblique,
+  ]%
+  \setmonofont{lmmonolt10}[
+    Extension      = .otf,
+    UprightFont    = *-regular,
+    BoldFont       = *-bold,
+    ItalicFont     = *-oblique,
+    BoldItalicFont = *-boldoblique,
+  ]%
+}
+\newcommand\thu@set@font@newtx{%
+  \RequirePackage{newtxtext}%
+}
+\newcommand\thu@set@font{%
+  \@nameuse{thu@set@font@\thu@font}%
+}
+\thu@set@font
+\thu@option@hook{font}{\thu@set@font}
+%    \end{macrocode}
+%
+% \subsubsection{中文字体}
+%
+%    \begin{macrocode}
+\ifthu@cjk@font@auto
+  \ifthu@fontset@mac
+    \thusetup{cjk-font = mac}
+  \else
+    \ifthu@fontset@windows
+      \thusetup{cjk-font = windows}
+    \else
+      \ifthu@fontset@ubuntu
+        \thusetup{cjk-font = noto}
+      \else
+        \thusetup{cjk-font = fandol}
+      \fi
+    \fi
+  \fi
+\fi
+%    \end{macrocode}
+%
+% Windows 的中易字体。
+%    \begin{macrocode}
+\newcommand\thu@set@cjk@font@windows{%
+  \xeCJKsetup{EmboldenFactor=3}%
+  \setCJKmainfont{SimSun}[
+    AutoFakeBold = true,
+    ItalicFont   = KaiTi,
+  ]%
+  \setCJKsansfont{SimHei}[AutoFakeBold]%
+  \setCJKmonofont{FangSong}%
+  \setCJKfamilyfont{zhsong}{SimSun}[AutoFakeBold]%
+  \setCJKfamilyfont{zhhei}{SimHei}[AutoFakeBold]%
+  \setCJKfamilyfont{zhkai}{KaiTi}%
+  \setCJKfamilyfont{zhfs}{FangSong}%
+}
+%    \end{macrocode}
+%
+% macOS 的华文字体。
+%    \begin{macrocode}
+\newcommand\thu@set@cjk@font@mac{%
+  \defaultCJKfontfeatures{}%
+  \setCJKmainfont{Songti SC}[
+    UprightFont    = * Light,
+    BoldFont       = * Bold,
+    ItalicFont     = Kaiti SC Regular,
+    BoldItalicFont = Kaiti SC Bold,
+  ]%
+  \setCJKsansfont{Heiti SC}[
+    UprightFont    = * Light,
+    BoldFont       = * Medium,
+  ]%
+  \setCJKmonofont{STFangsong}
+  \setCJKfamilyfont{zhsong}{Songti SC}[
+    UprightFont    = * Light,
+    BoldFont       = * Bold,
+  ]%
+  \setCJKfamilyfont{zhhei}{Heiti SC}[
+    UprightFont    = * Light,
+    BoldFont       = * Medium,
+  ]%
+  \setCJKfamilyfont{zhfs}{STFangsong}%
+  \setCJKfamilyfont{zhkai}{Kaiti SC}[
+    UprightFont    = * Regular,
+    BoldFont       = * Bold,
+  ]%
+  \setCJKfamilyfont{zhli}{Baoli SC}%
+  \setCJKfamilyfont{zhyuan}{Yuanyi SC}[
+    UprightFont    = * Light,
+    BoldFont       = * Bold,
+  ]%
+}
+%    \end{macrocode}
+%
+% 思源字体。
+% 注意 Noto CJK 的 regular 字重名字不带“Regular”。
+%    \begin{macrocode}
+\newcommand\thu@set@cjk@font@noto{%
+  \defaultCJKfontfeatures{}%
+  \setCJKmainfont{Noto Serif CJK SC}[
+    UprightFont    = * Light,
+    BoldFont       = * Bold,
+    ItalicFont     = FandolKai-Regular,
+    ItalicFeatures = {Extension = .otf},
+    Script         = CJK,
+  ]%
+  \setCJKsansfont{Noto Sans CJK SC}[
+    BoldFont       = * Medium,
+    Script         = CJK,
+  ]%
+  \setCJKmonofont{Noto Sans Mono CJK SC}[
+    Script         = CJK,
+  ]%
+  \setCJKfamilyfont{zhsong}{Noto Serif CJK SC}[
+    UprightFont    = * Light,
+    UprightFont    = * Bold,
+    Script         = CJK,
+  ]%
+  \setCJKfamilyfont{zhhei}{Noto Sans CJK SC}[
+    BoldFont       = * Medium,
+    Script         = CJK,
+  ]%
+  \setCJKfamilyfont{zhfs}{FandolFang}[
+    Extension      = .otf,
+    UprightFont    = *-Regular,
+  ]%
+  \setCJKfamilyfont{zhkai}{FandolKai}[
+    Extension      = .otf,
+    UprightFont    = *-Regular,
+  ]%
+}
+%    \end{macrocode}
+%
+% Fandol 字体。
+%    \begin{macrocode}
+\newcommand\thu@set@cjk@font@fandol{%
+  \defaultCJKfontfeatures{}%
+  \setCJKmainfont{FandolSong}[
+    Extension   = .otf,
+    UprightFont = *-Regular,
+    BoldFont    = *-Bold,
+    ItalicFont  = FandolKai-Regular,
+    ItalicFeatures = {Extension = .otf},
+  ]%
+  \setCJKsansfont{FandolHei}[
+    Extension   = .otf,
+    UprightFont = *-Regular,
+    BoldFont    = *-Bold,
+  ]%
+  \setCJKmonofont{FandolFang}[
+    Extension   = .otf,
+    UprightFont = *-Regular,
+  ]%
+  \setCJKfamilyfont{zhsong}{FandolSong}[
+    Extension   = .otf,
+    UprightFont = *-Regular,
+    BoldFont    = *-Bold,
+  ]%
+  \setCJKfamilyfont{zhhei}{FandolHei}[
+    Extension   = .otf,
+    UprightFont = *-Regular,
+    BoldFont    = *-Bold,
+  ]%
+  \setCJKfamilyfont{zhfs}{FandolFang}[
+    Extension   = .otf,
+    UprightFont = *-Regular,
+  ]%
+  \setCJKfamilyfont{zhkai}{FandolKai}[
+    Extension   = .otf,
+    UprightFont = *-Regular,
+  ]%
+}
+\ifthu@cjk@font@none\else
+  \providecommand\songti{\CJKfamily{zhsong}}
+  \providecommand\heiti{\CJKfamily{zhhei}}
+  \providecommand\fangsong{\CJKfamily{zhfs}}
+  \providecommand\kaishu{\CJKfamily{zhkai}}
+\fi
+\newcommand\thu@set@cjk@font{%
+  \@nameuse{thu@set@cjk@font@\thu@cjk@font}%
+}
+\thu@set@cjk@font
+\thu@option@hook{cjk-font}{\thu@set@cjk@font}
+%    \end{macrocode}
+%
+% \subsubsection{数学字体}
+%
+% 使用 \pkg{unicode-math} 配置数学符号格式。
+%    \begin{macrocode}
+\newcommand\thu@set@math@style{%
+  \ifthu@math@style@TeX
+    \thusetup{
+      uppercase-greek    = upright,
+      less-than-or-equal = horizontal,
+      integral           = slanted,
+      integral-limits    = false,
+      partial            = italic,
+      math-ellipsis      = AMS,
+      real-part          = fraktur,
+    }%
+  \else
+    \thusetup{
+      uppercase-greek = italic,
+      integral        = upright,
+      integral-limits = true,
+      partial         = upright,
+      real-part       = roman,
+    }%
+    \ifthu@math@style@ISO
+      \thusetup{
+        less-than-or-equal = horizontal,
+        math-ellipsis      = lower,
+      }%
+    \else
+      \ifthu@math@style@GB
+        \thusetup{
+          less-than-or-equal = slanted,
+          math-ellipsis      = centered,
+        }%
+      \fi
+    \fi
+  \fi
+}
+\ifthu@main@language@chinese
+  \thusetup{math-style=GB}%
+\else
+  \thusetup{math-style=TeX}%
+\fi
+\thu@set@math@style
+\thu@option@hook{math-style}{\thu@set@math@style}
+\thu@option@hook{main-language}{%
+  \ifthu@main@language@chinese
+    \thusetup{math-style=GB}%
+  \else
+    \thusetup{math-style=TeX}%
+  \fi
+}
+%    \end{macrocode}
+%
+% 针对 \pkg{unicode-math} 逐项配置数学符号。
+%    \begin{macrocode}
+\newcommand\thu@set@unimath@leq{%
+  \ifthu@leq@horizontal
+    \ifx\@begindocumenthook\@undefined
+      \let\le\thu@save@leq
+      \let\ge\thu@save@geq
+      \let\leq\thu@save@leq
+      \let\geq\thu@save@geq
+    \else
+      \AtBeginDocument{%
+        \let\le\thu@save@leq
+        \let\ge\thu@save@geq
+        \let\leq\thu@save@leq
+        \let\geq\thu@save@geq
+      }%
+    \fi
+  \else
+    \ifthu@leq@slanted
+      \ifx\@begindocumenthook\@undefined
+        \let\le\leqslant
+        \let\ge\geqslant
+        \let\leq\leqslant
+        \let\geq\geqslant
+      \else
+        \AtBeginDocument{%
+          \let\le\leqslant
+          \let\ge\geqslant
+          \let\leq\leqslant
+          \let\geq\geqslant
+        }%
+      \fi
+    \fi
+  \fi
+}
+\newcommand\thu@set@unimath@integral@limits{%
+  \ifthu@integral@limits@true
+    \removenolimits{%
+      \int\iint\iiint\iiiint\oint\oiint\oiiint
+      \intclockwise\varointclockwise\ointctrclockwise\sumint
+      \intbar\intBar\fint\cirfnint\awint\rppolint
+      \scpolint\npolint\pointint\sqint\intlarhk\intx
+      \intcap\intcup\upint\lowint
+    }%
+  \else
+    \addnolimits{%
+      \int\iint\iiint\iiiint\oint\oiint\oiiint
+      \intclockwise\varointclockwise\ointctrclockwise\sumint
+      \intbar\intBar\fint\cirfnint\awint\rppolint
+      \scpolint\npolint\pointint\sqint\intlarhk\intx
+      \intcap\intcup\upint\lowint
+    }%
+  \fi
+}
+\newcommand\thu@set@unimath@ellipsis{%
+  \ifthu@math@ellipsis@centered
+    \DeclareRobustCommand\mathellipsis{\mathinner{\unicodecdots}}%
+  \else
+    \DeclareRobustCommand\mathellipsis{\mathinner{\unicodeellipsis}}%
+  \fi
+}
+\newcommand\thu@set@unimath@real@part{%
+  \ifthu@real@part@roman
+    \AtBeginDocument{%
+      \def\Re{\operatorname{Re}}%
+      \def\Im{\operatorname{Im}}%
+    }%
+  \else
+    \AtBeginDocument{%
+      \let\Re\thu@save@Re
+      \let\Im\thu@save@Im
+    }%
+  \fi
+}
+\newcommand\thu@set@unimath@style{%
+  \ifthu@uppercase@greek@upright
+    \unimathsetup{math-style = TeX}%
+  \else
+    \ifthu@uppercase@greek@italic
+      \unimathsetup{math-style = ISO}%
+    \fi
+  \fi
+  \ifthu@math@style@TeX
+    \unimathsetup{bold-style = TeX}%
+  \else
+    \unimathsetup{bold-style = ISO}%
+  \fi
+  \thu@set@unimath@leq
+  \thu@set@unimath@integral@limits
+  \ifthu@partial@upright
+    \unimathsetup{partial = upright}%
+  \else
+    \ifthu@partial@italic
+      \unimathsetup{partial = italic}%
+    \fi
+  \fi
+  \thu@set@unimath@ellipsis
+  \thu@set@unimath@real@part
+}
+%    \end{macrocode}
+%
+%    \begin{macrocode}
+\newcommand\thu@qed{\rule{1ex}{1ex}}
+\newcommand\thu@load@unimath{%
+  \@ifpackageloaded{unicode-math}{}{%
+    \RequirePackage{unicode-math}%
+    \AtBeginDocument{%
+      \let\thu@save@leq\leq
+      \let\thu@save@geq\geq
+      \let\thu@save@Re\Re
+      \let\thu@save@Im\Im
+    }%
+%    \end{macrocode}
+%
+% 兼容旧的粗体命令：\pkg{bm} 的 \cs{bm} 和 \pkg{amsmath} 的 \cs{boldsymbol}。
+%    \begin{macrocode}
+    \DeclareRobustCommand\bm[1]{{\symbfit{##1}}}%
+    \DeclareRobustCommand\boldsymbol[1]{{\symbfit{##1}}}%
+%    \end{macrocode}
+%
+% 兼容 \pkg{amsfonts} 和 \pkg{amssymb} 中的一些命令。
+%    \begin{macrocode}
+    \newcommand\square{\mdlgwhtsquare}%
+    \newcommand\blacksquare{\mdlgblksquare}%
+    \AtBeginDocument{%
+      \renewcommand\checkmark{\ensuremath{✓}}%
+    }%
+%    \end{macrocode}
+%
+% 兼容 \pkg{amsthm} 的 \cs{qedsymbol}。
+%    \begin{macrocode}
+    \renewcommand\thu@qed{\ensuremath{\QED}}%
+  }%
+}
+%    \end{macrocode}
+%
+% STIX Two Math
+%    \begin{macrocode}
+\newcommand\thu@set@math@font@stix{%
+  \thu@set@stix@names
+  \setmathfont{\thu@font@name@stix@math}[
+    Extension    = .otf,
+    StylisticSet = \thu@xits@integral@stylistic@set,
+  ]%
+  \setmathfont{\thu@font@name@stix@math}[
+    Extension    = .otf,
+    StylisticSet = 1,
+    range        = {scr,bfscr},
+  ]%
+}
+%    \end{macrocode}
+%
+% XITS Math
+%    \begin{macrocode}
+\newcommand\thu@xits@integral@stylistic@set{%
+  \ifthu@integral@upright
+    8%
+  \fi
+}
+\newcommand\thu@set@math@font@xits{%
+  \thu@set@xits@names
+  \setmathfont{\thu@font@name@xits@math}[
+    Extension    = .otf,
+    StylisticSet = \thu@xits@integral@stylistic@set,
+  ]%
+  \setmathfont{\thu@font@name@xits@math}[
+    Extension    = .otf,
+    StylisticSet = 1,
+    range        = {cal,bfcal},
+  ]%
+}
+%    \end{macrocode}
+%
+% Libertinus Math
+%    \begin{macrocode}
+\newcommand\thu@libertinus@integral@stylistic@set{%
+  \ifthu@integral@slanted
+    8%
+  \fi
+}
+\newcommand\thu@set@math@font@libertinus{%
+  \thu@set@libertinus@names
+  \setmathfont{\thu@font@name@libertinus@math}[
+    Extension    = .otf,
+    StylisticSet = \thu@libertinus@integral@stylistic@set,
+  ]%
+}
+%    \end{macrocode}
+%
+% New Computer Modern Math
+%    \begin{macrocode}
+\newcommand\thu@newcm@integral@stylistic@set{%
+  \ifthu@integral@upright
+    2%
+  \fi
+}
+\newcommand\thu@set@math@font@newcm{%
+  \setmathfont{NewCMMath-Book}[
+    Extension    = .otf,
+    StylisticSet = \thu@newcm@integral@stylistic@set,
+  ]%
+  \setmathfont{NewCMMath-Book}[
+    Extension    = .otf,
+    StylisticSet = 1,
+    range        = {scr,bfscr},
+  ]%
+  \setmathrm{NewCM10}[
+    Extension      = .otf,
+    UprightFont    = *-Book,
+    BoldFont       = *-Bold,
+    ItalicFont     = *-BookItalic,
+    BoldItalicFont = *-BoldItalic,
+  ]%
+  \setmathsf{NewCMSans10}[
+    Extension         = .otf,
+    UprightFont       = *-Book,
+    BoldFont          = *-Bold,
+    ItalicFont        = *-BookOblique,
+    BoldItalicFont    = *-BoldOblique,
+  ]%
+  \setmathtt{NewCMMono10}[
+    Extension           = .otf,
+    UprightFont         = *-Book,
+    ItalicFont          = *-BookItalic,
+    BoldFont            = *-Bold,
+    BoldItalicFont      = *-BoldOblique,
+  ]%
+}
+%    \end{macrocode}
+%
+% Latin Modern Math
+%    \begin{macrocode}
+\newcommand\thu@set@math@font@lm{%
+  \setmathfont{latinmodern-math}[Extension=.otf]%
+  \setmathrm{lmroman10}[
+    Extension      = .otf,
+    UprightFont    = *-regular,
+    BoldFont       = *-bold,
+    ItalicFont     = *-italic,
+    BoldItalicFont = *-bolditalic,
+  ]%
+  \setmathsf{lmsans10}[
+    Extension      = .otf,
+    UprightFont    = *-regular,
+    BoldFont       = *-bold,
+    ItalicFont     = *-oblique,
+    BoldItalicFont = *-boldoblique,
+  ]%
+  \setmathtt{lmmonolt10}[
+    Extension      = .otf,
+    UprightFont    = *-regular,
+    BoldFont       = *-bold,
+    ItalicFont     = *-oblique,
+    BoldItalicFont = *-boldoblique,
+  ]%
+}
+%    \end{macrocode}
+%
+% NewTX Math
+%    \begin{macrocode}
+\newcommand\thu@set@math@font@newtx{%
+  \ifthu@font@newtx\else
+    \let\thu@save@encodingdefault\encodingdefault
+    \let\thu@save@rmdefault\rmdefault
+    \let\thu@save@sfdefault\sfdefault
+    \let\thu@save@ttdefault\ttdefault
+    \RequirePackage[T1]{fontenc}%
+    \renewcommand{\rmdefault}{ntxtlf}%
+    \renewcommand{\sfdefault}{qhv}%
+    \renewcommand{\ttdefault}{ntxtt}%
+  \fi
+  \ifthu@uppercase@greek@italic
+    \PassOptionsToPackage{slantedGreek}{newtxmath}%
+  \fi
+  \ifthu@integral@upright
+    \PassOptionsToPackage{upint}{newtxmath}%
+  \fi
+  \RequirePackage{newtxmath}
+  \let\thu@save@leq\leq
+  \let\thu@save@geq\geq
+  \ifthu@leq@slanted
+    \let\le\leqslant
+    \let\ge\geqslant
+    \let\leq\leqslant
+    \let\geq\geqslant
+  \fi
+  \ifthu@integral@limits@true
+    \let\ilimits@\displaylimits
+  \fi
+  \let\thu@save@partial\partial
+  \ifthu@partial@upright
+    \let\partial\uppartial
+  \fi
+  \ifthu@math@ellipsis@centered
+    \DeclareRobustCommand\mathellipsis{\mathinner{\cdotp\cdotp\cdotp}}%
+  \else
+    \DeclareRobustCommand\mathellipsis{\mathinner{\ldotp\ldotp\ldotp}}%
+  \fi
+  \let\thu@save@Re\Re
+  \let\thu@save@Im\Im
+  \ifthu@real@part@roman
+    \def\Re{\operatorname{Re}}%
+    \def\Im{\operatorname{Im}}%
+  \fi
+  \RequirePackage{bm}%
+  \ifthu@font@newtx\else
+    \let\encodingdefault\thu@save@encodingdefault
+    \let\rmdefault\thu@save@rmdefault
+    \let\sfdefault\thu@save@sfdefault
+    \let\ttdefault\thu@save@ttdefault
+  \fi
+  \DeclareRobustCommand\symup[1]{{\mathrm{##1}}}%
+  \DeclareRobustCommand\symbf[1]{{\bm{##1}}}%
+  \let\increment\upDelta%
+  \renewcommand\thu@qed{\openbox}%
+}
+%    \end{macrocode}
+%
+%    \begin{macrocode}
+\newcommand\thu@set@math@font{%
+  \ifthu@math@font@none\else
+    \ifthu@math@font@newtx
+      \thu@set@math@font@newtx
+    \else
+      \thu@load@unimath
+      \thu@set@unimath@style
+      \@nameuse{thu@set@math@font@\thu@math@font}%
+    \fi
+  \fi
+}
+\thu@option@hook{math-font}{\g@addto@macro\thu@setup@hook{\thu@set@math@font}}
+\newcommand\thu@set@math@font@auto{%
+  \ifthu@math@font@auto
+    \thusetup{math-font=xits}%
+  \fi
+}
+\AtBeginOfPackageFile*{siunitx}{\thu@set@math@font@auto}
+\AtEndPreamble{\thu@set@math@font@auto}
+%    \end{macrocode}
+%
+%
+% \subsection{主文档格式}
+% \label{sec:mainbody}
+%
+% \subsubsection{Three matters}
+% \begin{macro}{\cleardoublepage}
+% 对于 \textsl{openright} 选项，必须保证章首页右开，且如果前章末页无内容须
+% 清空其页眉页脚。
+%    \begin{macrocode}
+\def\cleardoublepage{%
+  \clearpage
+  \if@twoside
+    \ifthu@output@print
+      \ifodd\c@page
+      \else
+        \thispagestyle{empty}%
+        \hbox{}%
+        \newpage
+        \if@twocolumn
+          \hbox{}\newpage
+        \fi
+      \fi
+    \fi
+  \fi
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\frontmatter}
+% \begin{macro}{\mainmatter}
+% \begin{macro}{\backmatter}
+% 我们的单面和双面模式与常规的不太一样。
+%    \begin{macrocode}
+\renewcommand\frontmatter{%
+  \cleardoublepage
+  \@mainmatterfalse
+  \pagenumbering{Roman}%
+}
+\renewcommand\mainmatter{%
+  \cleardoublepage
+  \@mainmattertrue
+  \pagenumbering{arabic}%
+}
+\renewcommand\backmatter{%
+  \if@openright
+    \cleardoublepage
+  \else
+    \clearpage
+  \fi
+  \@mainmatterfalse
+  \thusetup{toc-depth = 0}%
+}
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+%
 % \subsubsection{页眉页脚}
 % \label{sec:headerfooter}
 %
@@ -2459,11 +3120,27 @@
     \let\chaptermark\@gobble
   \else
     \renewcommand\headrulewidth{0.75bp}%
-    \fancyhead[C]{\wuhao\leftmark}%
+    \fancyhead[C]{%
+      \wuhao
+      \ifthu@main@language@chinese
+        \leftmark
+      \else
+        \MakeUppercase{\leftmark}%
+      \fi
+      }%
     \fancyfoot[C]{\wuhao\thepage}%
     \let\@mkboth\markboth
     \def\chaptermark##1{%
-      \markboth{\CTEXifname{\CTEXthechapter\quad}{}##1}{}%
+      \markboth{%
+        \CTEXifname{%
+          \CTEXthechapter
+          \ifthu@main@language@chinese
+            \quad
+          \else
+            \space
+          \fi
+        }{}##1%
+      }{}%
     }%
   \fi
   \let\sectionmark\@gobble
@@ -2473,7 +3150,8 @@
 %
 % \cs{chapter} 会调用特殊的 page style。
 %    \begin{macrocode}
-\ctexset{chapter/pagestyle = plain}
+\def\ps@chapter{}
+\ctexset{chapter/pagestyle = chapter}
 %    \end{macrocode}
 %
 %
@@ -2487,14 +3165,14 @@
   space=auto,
 }
 \newcommand\thu@set@indent{%
-  \ifthu@main@language@english
+  \ifthu@main@language@chinese
+    \ctexset{autoindent=2}%
+  \else
     \ifthu@degree@bachelor
       \ctexset{autoindent=0.8cm}%
     \else
-      \ctexset{autoindent=2}%
+      \ctexset{autoindent=0.74cm}%
     \fi
-  \else
-    \ctexset{autoindent=2}%
   \fi
 }
 \thu@set@indent
@@ -2635,106 +3313,9 @@
 %
 % \subsubsection{数学相关}
 % \label{sec:equation}
-% \begin{macro}{\ldots}
-% 省略号一律居中，所以 \cs{ldots} 不再居于底部。
-%    \begin{macrocode}
-\newcommand\thu@set@math@ellipsis{%
-  \ifthu@language@chinese
-    \DeclareRobustCommand\mathellipsis{\mathinner{\unicodecdots}}%
-  \else
-    \ifthu@language@english
-      \DeclareRobustCommand\mathellipsis{\mathinner{\unicodeellipsis}}%
-    \fi
-  \fi
-}
-\thu@set@math@ellipsis
-\thu@option@hook{language}{\thu@set@math@ellipsis}
-%    \end{macrocode}
-% \end{macro}
-%
-% \begin{macro}{\le}
-% \begin{macro}{\ge}
-% \begin{macro}{\leq}
-% \begin{macro}{\geq}
-% 小于等于号要使用倾斜的形式。
-%    \begin{macrocode}
-\protected\def\le{\leqslant}
-\protected\def\ge{\geqslant}
-\AtBeginDocument{%
-  \renewcommand\leq{\leqslant}%
-  \renewcommand\geq{\geqslant}%
-}
-%    \end{macrocode}
-% \end{macro}
-% \end{macro}
-% \end{macro}
-% \end{macro}
-%
-% \begin{macro}{\int}
-% 积分号 \cs{int} 使用正体，并且上下限默认置于积分号上下两侧。
-%    \begin{macrocode}
-\removenolimits{%
-  \int\iint\iiint\iiiint\oint\oiint\oiiint
-  \intclockwise\varointclockwise\ointctrclockwise\sumint
-  \intbar\intBar\fint\cirfnint\awint\rppolint
-  \scpolint\npolint\pointint\sqint\intlarhk\intx
-  \intcap\intcup\upint\lowint
-}
-%    \end{macrocode}
-% \end{macro}
-%
-% \begin{macro}{\Re}
-% \begin{macro}{\Im}
-% 实部、虚部操作符使用罗马体 $\mathrm{Re}$、$\mathrm{Im}$ 而不是 fraktur 体
-% $\Re$、$\Im$。
-%    \begin{macrocode}
-\AtBeginDocument{%
-  \renewcommand{\Re}{\operatorname{Re}}%
-  \renewcommand{\Im}{\operatorname{Im}}%
-}
-%    \end{macrocode}
-% \end{macro}
-% \end{macro}
-%
-% \begin{macro}{\nabla}
-% \cs{nabla} 使用粗正体。
-%    \begin{macrocode}
-\AtBeginDocument{%
-  \renewcommand\nabla{\mbfnabla}%
-}
-%    \end{macrocode}
-% \end{macro}
-%
-% \begin{macro}{\bm}
-% \begin{macro}{\boldsymbol}
-% 兼容旧的粗体命令：\pkg{bm} 的 \cs{bm} 和 \pkg{amsmath} 的 \cs{boldsymbol}。
-%    \begin{macrocode}
-\DeclareRobustCommand\bm[1]{{\symbf{#1}}}
-\DeclareRobustCommand\boldsymbol[1]{{\symbf{#1}}}
-%    \end{macrocode}
-% \end{macro}
-% \end{macro}
-%
-% \begin{macro}{\square}
-% 兼容 \pkg{amssymb} 中的命令。
-%    \begin{macrocode}
-\newcommand\square{\mdlgwhtsquare}
-%    \end{macrocode}
-% \end{macro}
-%
-% \begin{macro}{\checkmark}
-% 允许在文本模式中使用 \cs{checkmark}。
-%    \begin{macrocode}
-\AtBeginDocument{%
-  \renewcommand\checkmark{\ensuremath{✓}}%
-}
-%    \end{macrocode}
-% \end{macro}
-%
 % 允许太长的公式断行、分页等。
 %    \begin{macrocode}
 \allowdisplaybreaks[4]
-\renewcommand\theequation{\ifnum \c@chapter>\z@ \thechapter-\fi\@arabic\c@equation}
 %    \end{macrocode}
 %
 % 公式距前后文的距离由 4 个参数控制，参见 \cs{normalsize} 的定义。
@@ -2750,12 +3331,45 @@
 %
 % 设置浮动对象和文字之间的距离
 %    \begin{macrocode}
-\setlength{\floatsep}{6bp}
-\setlength{\textfloatsep}{6bp}
-\setlength{\intextsep}{6bp}
+\setlength{\floatsep}{12\p@ \@plus 2\p@ \@minus 2\p@}
+\setlength{\textfloatsep}{12\p@ \@plus 2\p@ \@minus 2\p@}
+\setlength{\intextsep}{12\p@ \@plus 2\p@ \@minus 2\p@}
 \setlength{\@fptop}{0bp \@plus1.0fil}
 \setlength{\@fpsep}{12bp \@plus2.0fil}
 \setlength{\@fpbot}{0bp \@plus1.0fil}
+%    \end{macrocode}
+%
+% 由于 LaTeX2e kernel 的问题，图表等浮动体与文字前后的距离不一致，需要进行 patch。
+% 参考 \href{https://github.com/tuna/thuthesis/issues/614}{tuna/thuthesis/issues\#614}、
+% \url{https://www.zhihu.com/question/46618031} 和
+% \url{https://tex.stackexchange.com/a/40363/82731}。
+%    \begin{macrocode}
+\patchcmd{\@addtocurcol}%
+  {\vskip \intextsep}%
+  {\edef\save@first@penalty{\the\lastpenalty}\unpenalty
+   \ifnum \lastpenalty = \@M  % hopefully the OR penalty
+     \unpenalty
+   \else
+     \penalty \save@first@penalty \relax % put it back
+   \fi
+   \ifnum\outputpenalty <-\@Mii
+     \addvspace\intextsep
+     \vskip\parskip
+   \else
+     \addvspace\intextsep
+   \fi}%
+  {}{\thu@patch@error{\@addtocurcol}}
+\patchcmd{\@addtocurcol}%
+  {\vskip\intextsep \ifnum\outputpenalty <-\@Mii \vskip -\parskip\fi}%
+  {\ifnum\outputpenalty <-\@Mii
+     \aftergroup\vskip\aftergroup\intextsep
+     \aftergroup\nointerlineskip
+   \else
+     \vskip\intextsep
+   \fi}%
+  {}{\thu@patch@error{\@addtocurcol}}
+\patchcmd{\@getpen}{\@M}{\@Mi}
+  {}{\thu@patch@error{\@getpen}}
 %    \end{macrocode}
 %
 % 下面这组命令使浮动对象的缺省值稍微宽松一点，从而防止幅度对象占据过多的文本页面，
@@ -2767,52 +3381,78 @@
 \renewcommand{\floatpagefraction}{0.60}
 %    \end{macrocode}
 %
-% 研究生要求表单元格中的文字采用 11pt 宋体字，单倍行距，段前空 3 磅，段后空 3 磅。
-% $(3 + 3) / (11 \times 1.3) \approx 0.4$
+% 允许用户设置图表编号的连接符。
 %    \begin{macrocode}
-\patchcmd\@floatboxreset{%
-  \normalsize
-}{%
-  \fontsize{11bp}{14.3bp}\selectfont
-  \renewcommand\arraystretch{1.4}%
-}{}{\thu@patch@error{\@floatboxreset}}
+\thu@define@key{
+  figure-number-separator = {
+    name    = figure@number@separator,
+    default = {.},
+  },
+  table-number-separator = {
+    name    = table@number@separator,
+    default = {.},
+  },
+  equation-number-separator = {
+    name    = equation@number@separator,
+    default = {.},
+  },
+  number-separator = {
+    name    = number@separator,
+    default = {.},
+  },
+}
+\renewcommand\thefigure{%
+  \ifnum\c@chapter>\z@
+    \thechapter
+    \thu@figure@number@separator
+  \fi
+  \@arabic\c@figure
+}
+\renewcommand\thetable{%
+  \ifnum\c@chapter>\z@
+    \thechapter
+    \thu@table@number@separator
+  \fi
+  \@arabic\c@table
+}
+\renewcommand\theequation{%
+  \ifnum\c@chapter>\z@
+    \thechapter
+    \thu@equation@number@separator
+  \fi
+  \@arabic\c@equation
+}
+\newcommand\thu@set@number@separator{%
+  \let\thu@figure@number@separator\thu@number@separator
+  \let\thu@table@number@separator\thu@number@separator
+  \let\thu@equation@number@separator\thu@number@separator
+}
+\thu@option@hook{number-separator}{\thu@set@number@separator}
 %    \end{macrocode}
 %
-% 定制浮动图形和表格标题样式，以及改变附录中浮动体的编号规则：
+% 定制浮动图形和表格标题样式：
 % \begin{itemize}
-%   \item 图表标题字体为 11pt， 这里写作大五号
+%   \item 图表标题字体为 11pt
 %   \item 去掉图表号后面的冒号，图序与图名文字之间空一个汉字符宽度
-%   \item 本科生附录中的各种浮动体需要编号为类似 A-1 的形式
 %   \item 图：caption 在下，段前空 6 磅，段后空 12 磅
 %   \item 表：caption 在上，段前空 12 磅，段后空 6 磅
 % \end{itemize}
 %    \begin{macrocode}
-\ifthu@degree@bachelor
-  \AtBeginDocument{% delay the check until all packages are loaded
-    \g@addto@macro\appendix{\renewcommand*{\thefigure}{\thechapter-\arabic{figure}}}
-    \g@addto@macro\appendix{\renewcommand*{\thetable}{\thechapter-\arabic{table}}}
-  }
-\fi
-%    \end{macrocode}
-%
-%    \begin{macrocode}
-\newcommand\thu@caption@font{}
-\newcommand\thu@set@caption@font{%
+\DeclareCaptionFont{thu}{%
   \ifthu@degree@bachelor
-    \renewcommand\thu@caption@font{\fontsize{11bp}{15bp}\selectfont}%
+    \fontsize{11bp}{15bp}\selectfont
   \else
-    \renewcommand\thu@caption@font{\fontsize{11bp}{14.3bp}\selectfont}%
+    \ifthu@language@chinese
+      \fontsize{11bp}{14.3bp}\selectfont
+    \else
+      \fontsize{11bp}{12.65bp}\selectfont
+    \fi
   \fi
 }
-\thu@set@caption@font
-\thu@option@hook{degree}{\thu@set@caption@font}
-\DeclareCaptionFont{thu}{\thu@caption@font}
 \captionsetup{
-  format         = hang,
   font           = thu,
   labelsep       = quad,
-  aboveskip      = 6bp,
-  belowskip      = 6bp,
+  skip           = 6bp,
   figureposition = bottom,
   tableposition  = top,
 }
@@ -2820,6 +3460,50 @@
 \renewcommand{\thesubfigure}{(\alph{subfigure})}
 \renewcommand{\thesubtable}{(\alph{subtable})}
 % \renewcommand{\p@subfigure}{:}
+%    \end{macrocode}
+%
+% 研究生要求表单元格中的文字采用 11pt 宋体字，单倍行距。段前空 3 磅，段后空 3 磅。
+% 对于中文，\cs{arraystretch} 需要调整为 $1 + 6 / (11 \times 1.3) \approx 1.42$。
+% 对于英文，\cs{arraystretch} 需要调整为 $1 + 6 / (11 \times 1.15) \approx 1.47$。
+%
+% 注意不能简单地把行距设为 $\SI{11}{pt} \times 1.3 + \SI{6}{pt} = \SI{20.3}{pt}$，
+% 这会导致含有多行文字的单元格中行距有误。
+%
+% 其他浮动体中（比如 \env{algorithm}）的字号默认同表格一致。
+%    \begin{macrocode}
+\newcommand\thu@set@table@font{
+  \ifthu@language@chinese
+    \def\thu@table@font{%
+      \fontsize{11bp}{14.3bp}\selectfont
+      \renewcommand\arraystretch{1.42}%
+    }%
+  \else
+    \def\thu@table@font{%
+      \fontsize{11bp}{12.65bp}\selectfont
+      \renewcommand\arraystretch{1.47}%
+    }%
+  \fi
+}
+\thu@set@table@font
+\thu@option@hook{language}{\thu@set@table@font}
+\patchcmd\@floatboxreset{%
+  \normalsize
+}{%
+  \thu@table@font
+}{}{\thu@patch@error{\@floatboxreset}}
+%    \end{macrocode}
+%
+% 对 \pkg{longtable} 跨页表格进行相同的设置。
+%
+% 在 Word 模板中按照正确的设置（需要去掉文档网格），
+% 中文模板每页能装下 1 行标题、1 行表头、30 行表身，
+% 英文模板每页能装下 1 行标题、1 行表头、33 行表身。
+%    \begin{macrocode}
+\AtEndOfPackageFile*{longtable}{
+  \AtBeginEnvironment{longtable}{%
+    \thu@table@font
+  }
+}
 %    \end{macrocode}
 %
 % 研究生和本科生都推荐使用三线表，并且要求表的上、下边线为单直线，线粗为 1.5 磅；
@@ -2855,8 +3539,8 @@
     nameformat   = {},
     numberformat = {},
     titleformat  = {},
-    aftername    = \quad,
     fixskip      = true,
+    aftername    = \quad,
     afterindent  = true,
     lofskip      = 0pt,
     lotskip      = 0pt,
@@ -2919,9 +3603,19 @@
       },
     }%
     \ifthu@main@language@chinese
-      \ctexset{chapter/number = \thechapter}%
+      \ctexset{
+        chapter = {
+          name   = {第,章},
+          number = \thechapter,
+        },
+      }%
     \else
-      \ctexset{chapter/number = \thu@english@number{chapter}}%
+      \ctexset{
+        chapter = {
+          name   = \chaptername\space,
+          number = \thu@english@number{chapter},
+        },
+      }%
     \fi
 %    \end{macrocode}
 %
@@ -2953,24 +3647,58 @@
 % 由于 Word 的行距算法不同，这里进行了一些调整使得视觉上更接近。
 %    \begin{macrocode}
   \else
+    \ifthu@main@language@chinese
+      \ctexset{%
+        chapter = {
+          format      = \centering\sffamily\sanhao,
+          nameformat  = {},
+          titleformat = {},
+          name        = {第,章},
+        },
+        section = {
+          format     = \sffamily\fontsize{14bp}{20bp}\selectfont,
+        },
+        subsection = {
+          format     = \sffamily\fontsize{13bp}{20bp}\selectfont,
+        },
+        subsubsection = {
+          format     = \sffamily\fontsize{12bp}{20bp}\selectfont,
+        },
+      }%
+    \else
+      \ctexset{%
+        chapter = {
+          format      = \centering\sffamily\bfseries\fontsize{16bp}{20bp}\selectfont,
+          nameformat  = \MakeUppercase,
+          titleformat = \MakeUppercase,
+          name        = \chaptername\space,
+        },
+        section = {
+          format     = \sffamily\bfseries\fontsize{14bp}{20bp}\selectfont,
+        },
+        subsection = {
+          format     = \sffamily\bfseries\fontsize{13bp}{20bp}\selectfont,
+        },
+        subsubsection = {
+          format     = \sffamily\bfseries\fontsize{12bp}{20bp}\selectfont,
+        },
+      }%
+    \fi
     \ctexset{%
       chapter = {
-        format     = \centering\sffamily\sanhao,
         beforeskip = 27bp,
         afterskip  = 27bp,
+        number     = \thechapter,
       },
       section = {
-        format     = \sffamily\fontsize{14bp}{20bp}\selectfont,
         beforeskip = 24bp,
         afterskip  = 6bp,
       },
       subsection = {
-        format     = \sffamily\fontsize{13bp}{20bp}\selectfont,
         beforeskip = 12bp,
         afterskip  = 6bp,
       },
       subsubsection = {
-        format     = \sffamily\fontsize{12bp}{20bp}\selectfont,
         beforeskip = 12bp,
         afterskip  = 6bp,
       },
@@ -2979,6 +3707,7 @@
 }
 \thu@set@section@format
 \thu@option@hook{degree}{\thu@set@section@format}
+\thu@option@hook{main-language}{\thu@set@section@format}
 %    \end{macrocode}
 %
 %    \begin{macrocode}
@@ -3155,22 +3884,38 @@
 % 但是页码仍然用 \cs{rmfamily}。
 %    \begin{macrocode}
   \else
-    \titlecontents{chapter}
-      [\z@]{\addvspace{6bp}\sffamily}
-      {\contentspush{\thecontentslabel\quad}}{}
-      {\rmfamily\thu@leaders\thecontentspage}%
-    \titlecontents{section}
-      [1em]{}
-      {\contentspush{\thecontentslabel\quad}}{}
-      {\thu@leaders\thecontentspage}%
-    \titlecontents{subsection}
-      [2em]{}
-      {\contentspush{\thecontentslabel\quad}}{}
-      {\thu@leaders\thecontentspage}%
+    \ifthu@main@language@chinese
+      \titlecontents{chapter}
+        [\z@]{\addvspace{6bp}\sffamily}
+        {\contentspush{\thecontentslabel\quad}}{}
+        {\rmfamily\thu@leaders\thecontentspage}%
+      \titlecontents{section}
+        [1em]{}
+        {\contentspush{\thecontentslabel\quad}}{}
+        {\thu@leaders\thecontentspage}%
+      \titlecontents{subsection}
+        [2em]{}
+        {\contentspush{\thecontentslabel\quad}}{}
+        {\thu@leaders\thecontentspage}%
+    \else
+      \titlecontents{chapter}
+        [\z@]{\addvspace{6bp}\heiti}
+        {\contentspush{\MakeUppercase{\thecontentslabel}\quad}\MakeUppercase}{\MakeUppercase}
+        {\rmfamily\thu@leaders\thecontentspage}%
+      \titlecontents{section}
+        [1em]{}
+        {\contentspush{\thecontentslabel\space}}{}
+        {\thu@leaders\thecontentspage}%
+      \titlecontents{subsection}
+        [2em]{}
+        {\contentspush{\thecontentslabel\space}}{}
+        {\thu@leaders\thecontentspage}%
+    \fi
   \fi
 }
 \thu@set@toc@format
 \thu@option@hook{degree}{\thu@set@toc@format}
+\thu@option@hook{main-language}{\thu@set@toc@format}
 %    \end{macrocode}
 % \end{macro}
 %
@@ -3208,6 +3953,9 @@
     default = {Name of author},
     name    = author@en,
   },
+  student-id = {
+    name = student@id,
+  },
   supervisor = {
     default = {导师姓名},
   },
@@ -3221,11 +3969,18 @@
   associate-supervisor* = {
     name = associate@supervisor@en,
   },
+  co-supervisor = {
+    name = co@supervisor,
+  },
+  co-supervisor* = {
+    name = co@supervisor@en,
+  },
+  % Reserved for compatibility
   joint-supervisor = {
-    name = joint@supervisor,
+    name = co@supervisor,
   },
   joint-supervisor* = {
-    name = joint@supervisor@en,
+    name = co@supervisor@en,
   },
 %    \end{macrocode}
 %
@@ -3407,8 +4162,10 @@
     \thu@spine
   \fi
   \ifthu@degree@graduate
-    \cleardoublepage
-    \thu@titlepage@en
+    \ifthu@thesis@type@thesis
+      \cleardoublepage
+      \thu@titlepage@en
+    \fi
   \fi
   \clearpage
 }
@@ -3424,13 +4181,19 @@
 \newcommand\thu@titlepage{%
   \thusetup{language = chinese}%
   \ifthu@degree@graduate
-    \ifthu@degree@type@academic
-      \thu@titlepage@graduate@academic
-    \else
-      \ifx\thu@discipline\@empty
-        \thu@titlepage@graduate@professional
-      \else
+    \ifthu@thesis@type@thesis
+      \ifthu@degree@type@academic
         \thu@titlepage@graduate@academic
+      \else
+        \ifx\thu@discipline\@empty
+          \thu@titlepage@graduate@professional
+        \else
+          \thu@titlepage@graduate@academic
+        \fi
+      \fi
+    \else
+      \ifthu@thesis@type@proposal
+        \thu@titlepage@proposal
       \fi
     \fi
   \else
@@ -3462,19 +4225,33 @@
     hmargin = 3.5cm,
   }%
   \thispagestyle{empty}%
-  \null\vskip 0.2cm%
+  \null\vskip 8.1pt%
   \begingroup
     \centering
     \parbox[t][2cm][t]{\textwidth}{%
-      \hskip -0.69cm%
+      \hskip -21.5pt%
       \thu@titlepage@secret
     }\par
-    \vskip 1.5cm%
-    {\thu@titlepage@title}%
-    \vskip 0.85cm%
+    \vskip 40.5pt%
+    \begingroup
+      \sffamily\fontsize{26bp}{46.8bp}\selectfont
+      \thu@title\par
+    \endgroup
+    \ifthu@main@language@english
+      \vskip 5.4pt%
+      \begingroup
+        \sffamily\bfseries\fontsize{20bp}{31.2bp}\selectfont
+        \thu@title@en\par
+      \endgroup
+      \vskip -9.2pt%
+    \fi
+    \vskip 24.1pt%
     \thu@titlepage@degree
     \vfill
-    \parbox[t][7.25cm][t]{\textwidth}{\centering\thu@titlepage@info}\par
+    \parbox[t][7.25cm][t]{\textwidth}{%
+      \centering\fangsong\fontsize{16bp}{31.2bp}\selectfont
+      \thu@titlepage@info
+    }\par
     \parbox[t][1.03cm][t]{\textwidth}{\centering\thu@titlepage@date}\par
   \endgroup
   \clearpage
@@ -3499,16 +4276,74 @@
       \thu@titlepage@secret
     }\par
     \vskip 1.5cm%
-    {\sffamily\yihao[1.575]\thu@title\par}%
-    \vskip 0.9cm%
+    \begingroup
+      % 1.21 倍行距，无网格
+      \sffamily\fontsize{26bp}{40.9bp}\selectfont
+      \thu@title\par
+    \endgroup
+    \ifthu@main@language@english
+      \vskip 5.4pt%
+      \begingroup
+        \sffamily\bfseries\fontsize{20bp}{31.2bp}\selectfont
+        \thu@title@en\par
+      \endgroup
+      \vskip -9.2pt%
+    \fi
+    \vskip 25.5pt%
     \thu@titlepage@degree
     \vfill
-    \parbox[t][5.28cm][t]{\textwidth}{\centering\thu@titlepage@info}\par
+    \parbox[t][5.24cm][t]{\textwidth}{%
+      \centering\fangsong\fontsize{16bp}{1cm}\selectfont
+      \thu@titlepage@info
+    }\par
     \parbox[t][1.25cm][t]{\textwidth}{\centering\thu@titlepage@date}\par
   \endgroup
   \clearpage
   \restoregeometry
 }
+%    \end{macrocode}
+%
+% 选题报告封面
+%    \begin{macrocode}
+\newcommand\thu@titlepage@proposal{%
+  \newgeometry{
+    top     = 5cm,
+    bottom  = 3.25cm,
+    hmargin = 3.17cm,
+  }%
+  \thispagestyle{empty}%
+  \begingroup
+    % \vspace*{0.1cm}%
+    \centering
+    % {\thu@titlepage@title}%
+    \parbox[t][3cm]{\textwidth}{%
+      \vskip 0.1cm%
+      \centering
+      \sffamily\fontsize{26bp}{46.8bp}\selectfont
+      \thu@title\par
+    }%
+    \vskip 0.85cm%
+    \thu@titlepage@degree
+    \vfill
+    \parbox[t][8.5cm][t]{\textwidth}{%
+      \centering\CJKfamily+{}%
+      \centering\fangsong\sanhao[1.95]%
+      \thu@titlepage@info
+    }\par
+    \parbox[t][2.5cm][t]{\textwidth}{\centering\thu@titlepage@date}\par
+  \endgroup
+  \clearpage
+  \restoregeometry
+}
+\newcommand\thu@set@student@id{%
+  \ifthu@thesis@type@proposal
+    \ifx\thu@student@id\@empty
+      \thusetup{student-id=2000310000}%
+    \fi
+  \fi
+}
+\thu@set@student@id
+\thu@option@hook{thesis-type}{\thu@set@student@id}
 %    \end{macrocode}
 %
 %    \begin{macrocode}
@@ -3522,22 +4357,33 @@
 }
 %    \end{macrocode}
 %
-% 题名使用一号黑体字，一行写不下时可分两行写。
-% 由于 Word 模板这里设置了“对齐到网格”，所以实际行距不是 1.25 倍。
-%    \begin{macrocode}
-\newcommand\thu@titlepage@title{%
-  \sffamily\yihao[1.8]\thu@title\par
-}
-%    \end{macrocode}
-%
 % 申请学位的学科门类: 小二号宋体字，字距延伸 0.5bp，
 % 所以 \cs{CJKglue} 应该设为 1 bp。
 %    \begin{macrocode}
 \newcommand\thu@titlepage@degree{%
   \begingroup
-    \def\CJKglue{\hskip 1bp}%
     \CJKfamily+{}\xiaoer
-    (申请清华大学\thu@degree@name\ifthu@degree@type@professional 专业\fi 学位论文)\par
+    \def\CJKglue{\hskip 1bp}%
+    \ifthu@thesis@type@thesis
+      (申请清华大学\thu@degree@name
+      \ifthu@degree@type@professional
+        专业%
+      \fi
+      学位论文)%
+    \else
+      \ifthu@thesis@type@proposal
+        (清华大学%
+        \ifthu@degree@doctor
+          博士%
+        \else
+          \ifthu@degree@master
+            硕士%
+          \fi
+        \fi
+        学位论文选题报告)%
+      \fi
+    \fi
+    \par
   \endgroup
 }
 %    \end{macrocode}
@@ -3575,8 +4421,8 @@
       ##2{##3}\\
     \fi
   }%
-  \fangsong\sanhao[1.95]%
   \begin{tabular}{l}%
+    \renewcommand\arraystretch{1}%
     #4%
   \end{tabular}%
 }
@@ -3585,18 +4431,20 @@
     \thu@info@item{培养单位}{}{\thu@department}%
     \thu@info@item{学科}{}{\thu@discipline}%
     \thu@info@item{研究生}{\thu@name@title}{\thu@author}%
+    \thu@info@item{学号}{}{\thu@student@id}%
     \thu@info@item{指导教师}{\thu@name@title}{\thu@supervisor}%
     \thu@info@item{副指导教师}{\thu@name@title}{\thu@associate@supervisor}%
-    \thu@info@item{联合导师}{\thu@name@title}{\thu@joint@supervisor}%
+    \thu@info@item{联合导师}{\thu@name@title}{\thu@co@supervisor}%
   }\par
 }
 \newcommand\thu@titlepage@info@doctor@professional{%
   \thu@titlepage@info@tabular{3.03cm}{5em}{1.52cm}{%
     \thu@info@item{培养单位}{}{\thu@department}%
     \thu@info@item{申请人}{\thu@name@title}{\thu@author}%
+    \thu@info@item{学号}{}{\thu@student@id}%
     \thu@info@item{指导教师}{\thu@name@title}{\thu@supervisor}%
     \thu@info@item{副指导教师}{\thu@name@title}{\thu@associate@supervisor}%
-    \thu@info@item{联合导师}{\thu@name@title}{\thu@joint@supervisor}%
+    \thu@info@item{联合导师}{\thu@name@title}{\thu@co@supervisor}%
   }\par
 }
 \newcommand\thu@titlepage@info@master@academic{%
@@ -3604,9 +4452,10 @@
     \thu@info@item{培养单位}{}{\thu@department}%
     \thu@info@item{学科}{}{\thu@discipline}%
     \thu@info@item{研究生}{\thu@name@title}{\thu@author}%
+    \thu@info@item{学号}{}{\thu@student@id}%
     \thu@info@item{指导教师}{\thu@name@title}{\thu@supervisor}%
     \thu@info@item{副指导教师}{\thu@name@title}{\thu@associate@supervisor}%
-    \thu@info@item{联合指导教师}{\thu@name@title}{\thu@joint@supervisor}%
+    \thu@info@item{联合指导教师}{\thu@name@title}{\thu@co@supervisor}%
   }\par
 }
 \newcommand\thu@titlepage@info@master@engineer{%
@@ -3614,18 +4463,20 @@
     \thu@info@item{培养单位}{}{\thu@department}%
     \thu@info@item{工程领域}{}{\thu@discipline}%
     \thu@info@item{申请人}{\thu@name@title}{\thu@author}%
+    \thu@info@item{学号}{}{\thu@student@id}%
     \thu@info@item{指导教师}{\thu@name@title}{\thu@supervisor}%
     \thu@info@item{副指导教师}{\thu@name@title}{\thu@associate@supervisor}%
-    \thu@info@item{联合指导教师}{\thu@name@title}{\thu@joint@supervisor}%
+    \thu@info@item{联合指导教师}{\thu@name@title}{\thu@co@supervisor}%
   }\par
 }
 \newcommand\thu@titlepage@info@master@other{%
   \thu@titlepage@info@tabular{3.28cm}{5em}{1.52cm}{%
     \thu@info@item{培养单位}{}{\thu@department}%
     \thu@info@item{申请人}{\thu@name@title}{\thu@author}%
+    \thu@info@item{学号}{}{\thu@student@id}%
     \thu@info@item{指导教师}{\thu@name@title}{\thu@supervisor}%
     \thu@info@item{副指导教师}{\thu@name@title}{\thu@associate@supervisor}%
-    \thu@info@item{联合指导教师}{\thu@name@title}{\thu@joint@supervisor}%
+    \thu@info@item{联合指导教师}{\thu@name@title}{\thu@co@supervisor}%
   }\par
 }
 %    \end{macrocode}
@@ -3635,8 +4486,9 @@
 %    \begin{macrocode}
 \newcommand\thu@titlepage@date{%
   \begingroup
+    \sanhao
     \def\CJKglue{\hskip 1bp}%
-    \sanhao\thu@format@date{\thu@date@zh@short}{\thu@date}\par
+    \thu@format@date{\thu@date@zh@short}{\thu@date}\par
   \endgroup
 }
 %    \end{macrocode}
@@ -3739,12 +4591,13 @@
 }
 \newcommand\thu@titlepage@en@supervisor{%
   \begin{tabular}{r@{\makebox[0.71cm][l]{:}}l}%
-    \thu@thesis@name@en{} Supervisor & \thu@supervisor@en     \\
+    \renewcommand\arraystretch{1}%
+    \thu@thesis@name@en{} Supervisor & \thu@supervisor@en \\
     \ifx\thu@associate@supervisor@en\@empty\else
-      Associate Supervisor            & \thu@associate@supervisor@en \\
+      Associate Supervisor           & \thu@associate@supervisor@en \\
     \fi
-    \ifx\thu@joint@supervisor@en\@empty\else
-      Cooperate Supervisor            & \thu@joint@supervisor@en   \\
+    \ifx\thu@co@supervisor@en\@empty\else
+      Co-supervisor                  & \thu@co@supervisor@en \\
     \fi
   \end{tabular}%
 }
@@ -3819,7 +4672,7 @@
     \def\thu@info@item##1##2##3{%
       \ifx##3\@empty\else
         \thu@fixed@box{%
-          \ifx\thu@joint@supervisor\@empty
+          \ifx\thu@co@supervisor\@empty
             4em%
           \else
             5.5em%
@@ -3835,7 +4688,7 @@
     \thu@info@item{姓名}{\thu@name@title}{\thu@author}%
     \thu@info@item{指导教师}{\thu@name@title}{\thu@supervisor}%
     \thu@info@item{辅导教师}{\thu@name@title}{\thu@associate@supervisor}%
-    \thu@info@item{联合指导教师}{\thu@name@title}{\thu@joint@supervisor}%
+    \thu@info@item{联合指导教师}{\thu@name@title}{\thu@co@supervisor}%
   \endgroup
   \vskip 1.4cm%
   \begingroup
@@ -3907,6 +4760,7 @@
     \vskip 0.4cm%
     {\xiaosi[2.6]%
       \begin{tabular}{l@{\quad}l}%
+        \renewcommand\arraystretch{1}%
         \thu@stretch{11em}{博士后姓名}                  & \thu@author           \\
         \thu@stretch{11em}{流动站（一级学科）名称}      & \thu@discipline@level@i  \\
         \thu@stretch{11em}{专\quad{}业（二级学科）名称} & \thu@discipline@level@ii \\
@@ -3919,7 +4773,7 @@
       研究工作期满时间\quad\thu@format@date{\thu@date@zh@digit}{\thu@end@date}\par
     }%
     \vskip 2.1cm%
-    {\xiaosi[2.6]清华大学人事部（北京）\par}%
+    {\xiaosi[2.6]清华大学人事处（北京）\par}%
     \vskip 0.6cm%
     {\wuhao\thu@format@date{\thu@date@zh@digit@short}{\thu@date}\par}%
   \end{center}%
@@ -3945,7 +4799,12 @@
   }%
   \kvsetkeys{thu@committee}{#1}%
   \ifx\thu@committee@file\@empty
-    \thu@chapter*[]{\thu@committee@name}%
+    \begingroup
+      \ifthu@main@language@english
+        \ctexset{chapter/format=\centering\sffamily\fontsize{16bp}{20bp}\selectfont}
+      \fi
+      \thu@chapter*[]{\thu@committee@name}%
+    \endgroup
   \else
     \thu@pdfbookmark{0}{\thu@committee@name}%
     \includepdf{\thu@committee@file}%
@@ -3958,7 +4817,9 @@
       afterindent = false,
     },
   }%
+  \thusetup{language=chinese}
 }{%
+  \thu@reset@main@language
 }
 %    \end{macrocode}
 % \end{environment}
@@ -3968,18 +4829,20 @@
 % 授权说明
 %    \begin{macrocode}
 \newcommand\copyrightpage[1][]{%
+  \cleardoublepage
   \ifthu@degree@postdoc\relax\else
     \def\thu@@tmp{#1}
     \ifx\thu@@tmp\@empty
+      \thusetup{language=chinese}%
       \ifthu@degree@bachelor
         \thu@copyright@page@bachelor
       \else
         \thu@copyright@page@graduate
       \fi
+      \thu@reset@main@language
     \else
-      \cleardoublepage
       \thispagestyle{empty}%
-      \thu@pdfbookmark{0}{\thu@authorization@title}%
+      \thu@pdfbookmark{0}{关于学位论文使用授权的说明}%
       \thu@phantomsection
       \kv@define@key{thu@copyright}{file}{\includepdf{\kv@value}}%
       \kv@set@family@handler{thu@copyright}{%
@@ -4000,56 +4863,47 @@
 \newcommand{\thu@authorization@frontdate}{%
   日\ifthu@degree@bachelor\hspace{1em}\else\hspace{2em}\fi 期：}
 \newcommand\thu@copyright@page@graduate{%
-  \cleardoublepage
-  \newgeometry{
-    vmargin = 3.8cm,
-    hmargin = 3.2cm,
-  }%
   \begingroup
     \ctexset{
       chapter = {
         format     = {\centering\sffamily\erhao},
-        beforeskip = 18bp,
-        afterskip  = 6bp,
+        beforeskip = 40bp,
+        afterskip  = 36bp,
       },
     }%
     \thu@chapter*[]{关于学位论文使用授权的说明}%
     \thispagestyle{empty}%
   \endgroup
-  \vskip 50bp%
+  \vskip 13bp%
   \begingroup
     \fontsize{14bp}{26bp}\selectfont
     本人完全了解清华大学有关保留、使用学位论文的规定，即：\par
     清华大学拥有在著作权法规定范围内学位论文的使用权，其中包括：%
-    （1）已获学位的研究生必须按学校规定提交学位论文，%
-    学校可以采用影印、缩印或其他复制手段保存研究生上交的学位论文；%
+    （1）\nobreak 已获学位的研究生必须按学校规定提交学位论文，%
+    学校可以采用影印、缩印或其他复制手段保存研究生上交的学位论文；\allowbreak
     （2）\nobreak 为教学和科研目的，学校可以将公开的学位论文作为资料在图书馆、资料室等场所供校内师生阅读，%
-    或在校园网上供校内师生浏览部分内容；%
+    或在校园网上供校内师生浏览部分内容；\allowbreak
     \ifthu@degree@doctor
-      （3）根据《中华人民共和国学位条例暂行实施办法》及上级教育主管部门具体要求，向国家图书馆报送相应的学位论文。%
+      （3）\nobreak 根据《中华人民共和国学位条例暂行实施办法》及上级教育主管部门具体要求，向国家图书馆报送相应的学位论文。%
     \else
-      （3）按照上级教育主管部门督导、抽查等要求，报送相应的学位论文。%
+      （3）\nobreak 按照上级教育主管部门督导、抽查等要求，报送相应的学位论文。%
     \fi
     \par
     本人保证遵守上述规定。\par
-    \vskip 6bp%
-    \textbf{（保密的论文在解密后遵守此规定）}\par
   \endgroup
-  \vskip1.2cm%
+  \vskip 33bp%
   \begingroup
-    \noindent\xiaosi
-    \hspace*{1.5cm}%
-    作者签名：\thu@underline[7em]\relax\hfill
-    导师签名：\thu@underline[7em]\relax\hspace*{1cm}\\[3pt]%
-    \hspace*{1.5cm}%
-    日\hspace{2em}期：\thu@underline[7em]\relax\hfill
-    日\hspace{2em}期：\thu@underline[7em]\relax\hspace*{1cm}%
+    \fontsize{12bp}{23.4bp}\selectfont
+    \parindent\z@
+    \leftskip 43bp%
+    作者签名：\hspace{4bp}\thu@underline[7em]{}\hspace{47bp}%
+    导师签名：\hspace{4bp}\thu@underline[7em]{}\par
+    \vskip 6bp%
+    日\hspace{2em}期：\hspace{4bp}\thu@underline[7em]{}\hspace{47bp}%
+    日\hspace{2em}期：\hspace{4bp}\thu@underline[7em]{}\par
   \endgroup
-  \clearpage
-  \restoregeometry
 }
 \newcommand\thu@copyright@page@bachelor{%
-  \cleardoublepage
   \begingroup
     \ctexset{
       chapter = {
@@ -4118,7 +4972,14 @@
   \fi
   \thusetup{language = chinese}%
   \ifthu@degree@graduate
-    \thu@chapter*{\thu@abstract@name}%
+    \begingroup
+      \ifthu@main@language@english
+        \ctexset{%
+          chapter/format = \centering\sffamily\fontsize{16bp}{20bp}\selectfont,
+        }%
+      \fi
+      \thu@chapter*{\thu@abstract@name}%
+    \endgroup
   \else
     \thu@chapter*[]{\thu@abstract@name}%
   \fi
@@ -4247,10 +5108,11 @@
   statement-page-style = {
     name = statement@page@style,
     choices = {
+      auto,
       empty,
       plain,
     },
-    default = empty,
+    default = auto,
   },
   statement-page-number = {
     name = statement@page@number,
@@ -4291,8 +5153,33 @@
     \fi
   }%
   \kvsetkeys{thu@statement}{#1}%
+  \ifthu@statement@page@style@auto
+    \ifx\thu@statement@file\@empty
+      \ifthu@degree@bachelor
+        \thusetup{statement-page-style = empty}%
+      \else
+        \thusetup{statement-page-style = plain}%
+      \fi
+    \else
+      \ifthu@degree@bachelor
+        \thusetup{statement-page-style = plain}%
+      \else
+        \thusetup{statement-page-style = empty}%
+      \fi
+    \fi
+  \fi
   \ifx\thu@statement@file\@empty
-    \thu@chapter*{\thu@statement@name}%
+    \thusetup{language=chinese}%
+    \begingroup
+      \ifthu@degree@graduate
+        \ifthu@main@language@english
+          \ctexset{%
+            chapter/format = \centering\sffamily\fontsize{16bp}{20bp}\selectfont,
+          }%
+        \fi
+      \fi
+      \thu@chapter*{\thu@statement@name}%
+    \endgroup
     \thispagestyle{\thu@statement@page@style}%
     \thu@statement@text\par
     \ifthu@degree@graduate
@@ -4302,11 +5189,13 @@
     \fi
     {\hfill\thu@signature\thu@underline[2.5cm]\relax
       \thu@backdate\thu@underline[2.5cm]\relax}%
+    \thu@reset@main@language
   \else
     \includepdf[pagecommand={%
       \markboth{\thu@statement@name}{}%
       \thu@phantomsection
       \addcontentsline{toc}{chapter}{\thu@statement@name}%
+      \thispagestyle{\thu@statement@page@style}%
     }]{\thu@statement@file}%
   \fi
   \ifthu@degree@bachelor
@@ -4477,20 +5366,44 @@
 %
 % 将 \cs{citep} super 式引用的页码改为上标。
 %    \begin{macrocode}
-  \renewcommand\NAT@citesuper[3]{\ifNAT@swa
-    \if*#2*\else#2\NAT@spacechar\fi
-    % \unskip\kern\p@\textsuperscript{\NAT@@open#1\NAT@@close}%
-    %  \if*#3*\else\NAT@spacechar#3\fi\else #1\fi\endgroup}
-    \unskip\kern\p@\textsuperscript{\NAT@@open#1\NAT@@close\if*#3*\else#3\fi}%
-    \else #1\fi\endgroup}
+  \renewcommand\NAT@citesuper[3]{%
+    \ifNAT@swa
+      \if*#2*\else
+        #2\NAT@spacechar
+      \fi
+      % \unskip\kern\p@\textsuperscript{\NAT@@open#1\NAT@@close}%
+      %  \if*#3*\else\NAT@spacechar#3\fi\else #1\fi\endgroup}
+      \unskip\kern\p@
+      \textsuperscript{%
+        \NAT@@open#1\NAT@@close
+        \if*#3*\else#3\fi
+      }%
+      \kern\p@
+    \else
+      #1%
+    \fi
+    \endgroup
+  }
 %    \end{macrocode}
 %
 % 将 \cs{citep} numbers 式引用的页码改为上标并置于括号外。
 %    \begin{macrocode}
-  \renewcommand\NAT@citenum%
-      [3]{\ifNAT@swa\NAT@@open\if*#2*\else#2\NAT@spacechar\fi
-          % #1\if*#3*\else\NAT@cmt#3\fi\NAT@@close\else#1\fi\endgroup}
-          #1\NAT@@close\textsuperscript{\if*#3*\else#3\fi}\else#1\fi\endgroup}
+  \renewcommand\NAT@citenum[3]{%
+    \ifNAT@swa
+      \NAT@@open
+      \if*#2*\else
+        #2\NAT@spacechar
+      \fi
+      % #1\if*#3*\else\NAT@cmt#3\fi\NAT@@close
+      #1\NAT@@close
+      \if*#3*\else
+        \textsuperscript{#3}%
+      \fi
+    \else
+      #1%
+    \fi
+    \endgroup
+  }
 %    \end{macrocode}
 %
 % 修改 \cs{citet} 引用的样式。
@@ -4584,8 +5497,11 @@
           % }{}%
           \NAT@mbox{\NAT@@close}%
           \@ifnum{\NAT@ctype=\z@}{%
-            \if*#2*\else\textsuperscript{#2}\fi
+            \if*#2*\else
+              \textsuperscript{#2}%
+            \fi
           }{}%
+          \NAT@super@kern
         \fi
     }{#1}{#2}%
   }%
@@ -4703,7 +5619,7 @@
 % 行距采用固定值 16 磅，段前空 3 磅，段后空 0 磅。
 %
 % 本科生要求宋体五号/Times New Roman 10.5 pt，固定行距 17pt，段前后间距 3pt；
-% 英文专业要求悬挂缩进 0.5inch(1.27 厘米)。
+% 英文专业要求悬挂缩进 0.5inch（1.27 厘米）。
 %
 % 复用 \pkg{natbib} 的 \texttt{thebibliography} 环境，调整距离。
 %    \begin{macrocode}
@@ -4855,7 +5771,7 @@
 %    \end{macrocode}
 %
 % 这里不要使用 \cs{addcontentsline}，
-% 避免写入 \pkg{titletoc} 的 (\file{.ptc}) 文件中，
+% 避免写入 \pkg{titletoc} 的 \file{.ptc} 文件中，
 % 造成 \env{survey} 的子目录中 |tocdepth| 为 0。
 %    \begin{macrocode}
 \thu@option@hook{toc-depth}{%
@@ -4987,7 +5903,7 @@
 }
 %    \end{macrocode}
 %
-% 调研阅读报告的参考文献(或书面翻译对应的外文资料的原文索引)标题用宋体小四号字，段前 20pt，段后 6pt，行距 20pt。
+% 调研阅读报告的参考文献（或书面翻译对应的外文资料的原文索引）标题用宋体小四号字，段前 20pt，段后 6pt，行距 20pt。
 %    \begin{macrocode}
 \newcommand\thu@appendix@bibsection{%
   \par
@@ -5075,6 +5991,36 @@
   \thu@error{The "\protect\publicationskip" is obsolete. Do not use it}%
 }
 %    \end{macrocode}
+%
+% \subsection{指导教师/小组学术评语}
+% \begin{environment}{comments}
+%    \begin{macrocode}
+\newenvironment{comments}[1][]{%
+  \@mainmatterfalse
+  \kv@define@key{thu@comments}{name}{\let\thu@comments@name\kv@value}%
+  \kv@set@family@handler{thu@comments}{%
+    \ifx\kv@value\relax
+      \let\thu@comments@name\kv@key
+    \else
+      \kv@handled@false
+    \fi
+  }%
+  \kvsetkeys{thu@comments}{#1}%
+  \chapter{\thu@comments@name}%
+}{%
+}
+%    \end{macrocode}
+% \end{environment}
+%
+% \subsection{答辩委员会决议书}
+% \begin{environment}{resolution}
+%    \begin{macrocode}
+\newenvironment{resolution}{%
+  \@mainmatterfalse
+  \chapter{\thu@resolution@name}%
+}{}
+%    \end{macrocode}
+% \end{environment}
 %
 % \subsection{综合论文训练记录表}
 %
@@ -5193,18 +6139,6 @@
 }
 %    \end{macrocode}
 %
-% \subsubsection{\pkg{longtable} 宏包}
-%
-% 我们采用 \pkg{longtable} 来处理跨页的表格。同样我们需要设置其默认字体为五号。
-%    \begin{macrocode}
-\AtEndOfPackageFile*{longtable}{
-  \pretocmd\LT@array{%
-    \fontsize{11bp}{14.3bp}\selectfont
-    \renewcommand\arraystretch{1.4}%
-  }{}{\thu@patch@error{\LT@array}}
-}
-%    \end{macrocode}
-%
 % \subsubsection{\pkg{siunitx} 宏包}
 %
 %    \begin{macrocode}
@@ -5224,7 +6158,7 @@
     \else
       \ifthu@language@english
         \sisetup{
-          list-final-separator = { and },
+          list-final-separator = {, and },
           list-pair-separator  = { and },
           range-phrase         = { to },
         }%
@@ -5272,7 +6206,7 @@
   }{%
     \popQED\endtrivlist\@endpefalse
   }
-  \renewcommand\qedsymbol{\ensuremath{\QED}}
+  \renewcommand\qedsymbol{\thu@qed}
 }
 %    \end{macrocode}
 %
@@ -5283,7 +6217,7 @@
 \AtEndOfPackageFile*{ntheorem}{%
   \theorembodyfont{\normalfont}%
   \theoremheaderfont{\normalfont\sffamily}%
-  \theoremsymbol{\ensuremath{\QED}}%
+  \theoremsymbol{\thu@qed}%
   \newtheorem*{proof}{\thu@proof@name}%
   \theoremstyle{plain}%
   \theoremsymbol{}%
@@ -5314,7 +6248,6 @@
 \PassOptionsToPackage{chapter}{algorithm}
 \AtEndOfPackageFile*{algorithm}{
   \floatname{algorithm}{\thu@algorithm@name}
-  \g@addto@macro\appendix{\renewcommand*{\thealgorithm}{\thechapter-\arabic{algorithm}}}
   \renewcommand\listofalgorithms{%
     \thu@listof{algorithm}%
   }
@@ -5357,7 +6290,6 @@
 %
 %    \begin{macrocode}
 \AtEndOfPackageFile*{minted}{
-  \g@addto@macro\appendix{\renewcommand*{\thelisting}{\thechapter-\arabic{listing}}}%
   \newcommand\thu@set@listing@language{%
     \ifthu@language@chinese
       \floatname{listing}{代码}%
@@ -5507,6 +6439,7 @@
 \RequirePackage{fontspec}[2017/01/20]
 \RequirePackage{amsmath}
 \RequirePackage{unicode-math}
+\RequirePackage{siunitx}
 \RequirePackage[UTF8,scheme=chinese]{ctex}
 \RequirePackage[
   top=2.5cm, bottom=2.5cm,
@@ -5541,7 +6474,6 @@
   \setmainfont{Palatino}
   \setsansfont[Scale=MatchLowercase]{Helvetica}
   \setmonofont[Scale=MatchLowercase]{Menlo}
-  \xeCJKsetwidth{‘’“”}{1em}
 }{
   \setmainfont[
     Extension      = .otf,
@@ -5571,6 +6503,7 @@
   math-style=ISO,
   bold-style=ISO,
 }
+\DeclareRobustCommand\mathellipsis{\mathinner{\unicodecdots}}
 \IfFontExistsTF{XITSMath-Regular.otf}{
   \setmathfont[
     Extension    = .otf,
@@ -5678,6 +6611,15 @@
   \marginpar{\raggedleft\color{purple}\bfseries\strut #1}}
 \newcommand{\note}[2][Note]{{%
   \color{magenta}{\bfseries #1}\emph{#2}}}
+
+\g@addto@macro\UrlBreaks{%
+  \do0\do1\do2\do3\do4\do5\do6\do7\do8\do9%
+  \do\A\do\B\do\C\do\D\do\E\do\F\do\G\do\H\do\I\do\J\do\K\do\L\do\M
+  \do\N\do\O\do\P\do\Q\do\R\do\S\do\T\do\U\do\V\do\W\do\X\do\Y\do\Z
+  \do\a\do\b\do\c\do\d\do\e\do\f\do\g\do\h\do\i\do\j\do\k\do\l\do\m
+  \do\n\do\o\do\p\do\q\do\r\do\s\do\t\do\u\do\v\do\w\do\x\do\y\do\z
+}
+\Urlmuskip=0mu plus 0.1mu
 
 \DeclareDocumentCommand{\githubuser}{m}{\href{https://github.com/#1}{@#1}}
 

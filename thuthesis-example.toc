@@ -1,14 +1,14 @@
-\contentsline {chapter}{摘\hskip 1em\relax 要}{I}{section*.9}%
-\contentsline {chapter}{Abstract}{II}{section*.11}%
-\contentsline {chapter}{目\hskip 1em\relax 录}{III}{section*.13}%
-\contentsline {chapter}{插图和附表清单}{VI}{section*.15}%
-\contentsline {chapter}{符号和缩略语说明}{VIII}{section*.17}%
+\contentsline {chapter}{摘\hskip 1em\relax 要}{I}{section*.8}%
+\contentsline {chapter}{Abstract}{II}{section*.10}%
+\contentsline {chapter}{目\hskip 1em\relax 录}{IV}{section*.12}%
+\contentsline {chapter}{插图和附表清单}{VII}{section*.14}%
+\contentsline {chapter}{符号和缩略语说明}{IX}{section*.16}%
 \contentsline {chapter}{\numberline {第1章}引言}{1}{chapter.1}%
 \contentsline {section}{\numberline {1.1}研究背景与意义}{1}{section.1.1}%
 \contentsline {section}{\numberline {1.2}问题描述与主要挑战}{2}{section.1.2}%
 \contentsline {subsection}{\numberline {1.2.1}问题描述及研究目标}{2}{subsection.1.2.1}%
-\contentsline {paragraph}{问题描述}{2}{paragraph*.19}%
-\contentsline {paragraph}{研究目标}{2}{paragraph*.20}%
+\contentsline {paragraph}{问题描述}{2}{paragraph*.18}%
+\contentsline {paragraph}{研究目标}{2}{paragraph*.19}%
 \contentsline {subsection}{\numberline {1.2.2}时间序列预测的挑战性}{3}{subsection.1.2.2}%
 \contentsline {section}{\numberline {1.3}研究内容与主要贡献}{3}{section.1.3}%
 \contentsline {section}{\numberline {1.4}组织结构}{4}{section.1.4}%
@@ -16,29 +16,29 @@
 \contentsline {section}{\numberline {2.1}引言}{5}{section.2.1}%
 \contentsline {section}{\numberline {2.2}时间序列预测方法}{5}{section.2.2}%
 \contentsline {subsection}{\numberline {2.2.1}时间序列预测常用模型}{5}{subsection.2.2.1}%
-\contentsline {paragraph}{循环神经网络在时间序列预测问题上的应用效果及问题}{6}{paragraph*.22}%
-\contentsline {paragraph}{序列模型能有效捕捉相关性及构造时变模型}{6}{paragraph*.23}%
-\contentsline {paragraph}{应用于时间序列预测的卷积神经网络}{7}{paragraph*.25}%
+\contentsline {paragraph}{循环神经网络在时间序列预测问题上的应用效果及问题}{6}{paragraph*.21}%
+\contentsline {paragraph}{序列模型能有效捕捉相关性及构造时变模型}{6}{paragraph*.22}%
+\contentsline {paragraph}{应用于时间序列预测的卷积神经网络}{7}{paragraph*.24}%
 \contentsline {subsection}{\numberline {2.2.2}提高预测效果方法}{8}{subsection.2.2.2}%
-\contentsline {paragraph}{经验模态分解}{8}{paragraph*.27}%
+\contentsline {paragraph}{经验模态分解}{8}{paragraph*.26}%
 \contentsline {section}{\numberline {2.3}对时间序列模型的训练加速}{8}{section.2.3}%
 \contentsline {subsection}{\numberline {2.3.1}模型训练加速方法研究现状}{8}{subsection.2.3.1}%
 \contentsline {subsection}{\numberline {2.3.2}筛选有效样本（重要性采样）}{8}{subsection.2.3.2}%
 \contentsline {subsection}{\numberline {2.3.3}重要性采样介绍}{10}{subsection.2.3.3}%
-\contentsline {paragraph}{蒙特卡洛积分}{10}{paragraph*.28}%
-\contentsline {paragraph}{重要性采样}{10}{paragraph*.29}%
+\contentsline {paragraph}{蒙特卡洛积分}{10}{paragraph*.27}%
+\contentsline {paragraph}{重要性采样}{10}{paragraph*.28}%
 \contentsline {chapter}{\numberline {第3章}时间序列数据分析与处理}{12}{chapter.3}%
 \contentsline {section}{\numberline {3.1}引言}{12}{section.3.1}%
 \contentsline {section}{\numberline {3.2}数据及评价指标说明}{12}{section.3.2}%
-\contentsline {subsubsection}{电网数据说明}{12}{subsubsection*.30}%
-\contentsline {subsubsection}{列车走行部数据说明}{12}{subsubsection*.32}%
-\contentsline {subsubsection}{评价指标}{12}{subsubsection*.34}%
+\contentsline {subsubsection}{电网数据说明}{12}{subsubsection*.29}%
+\contentsline {subsubsection}{列车走行部数据说明}{12}{subsubsection*.31}%
+\contentsline {subsubsection}{评价指标}{12}{subsubsection*.33}%
 \contentsline {section}{\numberline {3.3}数据特点分析}{13}{section.3.3}%
 \contentsline {subsection}{\numberline {3.3.1}工业装备状态数据特点}{13}{subsection.3.3.1}%
-\contentsline {subsubsection}{电网数据特点}{13}{subsubsection*.35}%
-\contentsline {subsubsection}{列车轴温数据特点}{14}{subsubsection*.36}%
+\contentsline {subsubsection}{电网数据特点}{13}{subsubsection*.34}%
+\contentsline {subsubsection}{列车轴温数据特点}{14}{subsubsection*.35}%
 \contentsline {subsection}{\numberline {3.3.2}时间序列数据平稳性分析}{14}{subsection.3.3.2}%
-\contentsline {paragraph}{平稳性分析的意义}{14}{paragraph*.38}%
+\contentsline {paragraph}{平稳性分析的意义}{14}{paragraph*.37}%
 \contentsline {section}{\numberline {3.4}数据预处理}{14}{section.3.4}%
 \contentsline {subsection}{\numberline {3.4.1}数据导入及清洗}{15}{subsection.3.4.1}%
 \contentsline {subsection}{\numberline {3.4.2}数据重采样}{15}{subsection.3.4.2}%
@@ -46,8 +46,8 @@
 \contentsline {subsection}{\numberline {3.4.4}整理数据表并通过滑动窗口取模型输入}{17}{subsection.3.4.4}%
 \contentsline {subsection}{\numberline {3.4.5}数据标准化}{17}{subsection.3.4.5}%
 \contentsline {subsection}{\numberline {3.4.6}不同序列划分方式}{18}{subsection.3.4.6}%
-\contentsline {paragraph}{序列化的划分方式下的过拟合问题}{18}{paragraph*.45}%
-\contentsline {paragraph}{采样两种划分方式实验的原因}{19}{paragraph*.46}%
+\contentsline {paragraph}{序列化的划分方式下的过拟合问题}{18}{paragraph*.44}%
+\contentsline {paragraph}{采样两种划分方式实验的原因}{19}{paragraph*.45}%
 \contentsline {section}{\numberline {3.5}实验环境}{19}{section.3.5}%
 \contentsline {subsection}{\numberline {3.5.1}实验说明}{20}{subsection.3.5.1}%
 \contentsline {subsection}{\numberline {3.5.2}选用Tensorflow2编写的优势}{20}{subsection.3.5.2}%
@@ -57,13 +57,13 @@
 \contentsline {section}{\numberline {4.2}工业装备状态预测方案}{23}{section.4.2}%
 \contentsline {subsection}{\numberline {4.2.1}系统设计}{23}{subsection.4.2.1}%
 \contentsline {subsection}{\numberline {4.2.2}方法说明}{24}{subsection.4.2.2}%
-\contentsline {subsubsection}{经验模态分解信号处理}{24}{subsubsection*.52}%
-\contentsline {subsubsection}{对高低频数据不同采样频率}{24}{subsubsection*.54}%
-\contentsline {subsubsection}{使用Layer Normalizaiton}{25}{subsubsection*.55}%
-\contentsline {subsubsection}{不同时间序列预测的模型方案对比}{25}{subsubsection*.56}%
-\contentsline {subsubsection}{自编码器在特征提取上的应用}{25}{subsubsection*.57}%
-\contentsline {paragraph}{自编码器效果}{26}{paragraph*.58}%
-\contentsline {subsubsection}{防止过拟合的策略}{26}{subsubsection*.59}%
+\contentsline {subsubsection}{经验模态分解信号处理}{24}{subsubsection*.51}%
+\contentsline {subsubsection}{对高低频数据不同采样频率}{24}{subsubsection*.53}%
+\contentsline {subsubsection}{使用Layer Normalizaiton}{25}{subsubsection*.54}%
+\contentsline {subsubsection}{不同时间序列预测的模型方案对比}{25}{subsubsection*.55}%
+\contentsline {subsubsection}{自编码器在特征提取上的应用}{25}{subsubsection*.56}%
+\contentsline {paragraph}{自编码器效果}{26}{paragraph*.57}%
+\contentsline {subsubsection}{防止过拟合的策略}{26}{subsubsection*.58}%
 \contentsline {subsection}{\numberline {4.2.3}两种不同的状态预测方法}{26}{subsection.4.2.3}%
 \contentsline {section}{\numberline {4.3}实验结果}{26}{section.4.3}%
 \contentsline {subsection}{\numberline {4.3.1}往前预测多步结果}{26}{subsection.4.3.1}%
@@ -76,20 +76,20 @@
 \contentsline {section}{\numberline {5.3}基于重要性采样的训练加速方法框架的设计}{31}{section.5.3}%
 \contentsline {subsection}{\numberline {5.3.1}模型结构设计}{31}{subsection.5.3.1}%
 \contentsline {section}{\numberline {5.4}训练加速实验效果}{32}{section.5.4}%
-\contentsline {subsubsection}{加速效果}{32}{subsubsection*.68}%
-\contentsline {subsubsection}{加速效果的稳定性}{33}{subsubsection*.73}%
+\contentsline {subsubsection}{加速效果}{32}{subsubsection*.67}%
+\contentsline {subsubsection}{加速效果的稳定性}{33}{subsubsection*.72}%
 \contentsline {section}{\numberline {5.5}本章小结}{34}{section.5.5}%
 \contentsline {chapter}{\numberline {第6章}总结与展望}{35}{chapter.6}%
 \contentsline {section}{\numberline {6.1}本文总结}{35}{section.6.1}%
 \contentsline {section}{\numberline {6.2}未来展望}{35}{section.6.2}%
 \setcounter {tocdepth}{0}
-\contentsline {chapter}{参考文献}{36}{section*.75}%
+\contentsline {chapter}{参考文献}{37}{section*.74}%
 \setcounter {tocdepth}{0}
-\contentsline {chapter}{\numberline {附录 A}补充内容}{38}{appendix.A}%
-\contentsline {section}{\numberline {A.1}电网数据补充说明}{38}{section.A.1}%
-\contentsline {chapter}{致\hskip 1em\relax 谢}{39}{section*.78}%
-\contentsline {chapter}{声\hspace {1em}明}{40}{section*.80}%
-\contentsline {chapter}{个人简历、在学期间完成的相关学术成果}{41}{section*.82}%
-\contentsline {chapter}{指导小组学术评语}{42}{appendix*.87}%
-\contentsline {chapter}{答辩委员会决议书}{43}{appendix*.88}%
+\contentsline {chapter}{\numberline {附录 A}补充内容}{39}{appendix.A}%
+\contentsline {section}{\numberline {A.1}电网数据补充说明}{39}{section.A.1}%
+\contentsline {chapter}{致\hskip 1em\relax 谢}{40}{section*.77}%
+\contentsline {chapter}{声\hspace {1em}明}{41}{section*.79}%
+\contentsline {chapter}{个人简历、在学期间完成的相关学术成果}{42}{section*.81}%
+\contentsline {chapter}{指导教师学术评语}{43}{appendix*.86}%
+\contentsline {chapter}{答辩委员会决议书}{44}{appendix*.87}%
 \contentsfinish 
