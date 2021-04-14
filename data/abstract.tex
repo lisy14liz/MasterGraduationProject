@@ -18,25 +18,27 @@
   因此以上问题很大程度上体现为针对时间序列的预测问题。
   
   工业装备数据来源复杂、机理多样、场景众多，
-  而且数据分布上一般具有正常运行样本量巨大单故障样本稀少的特点。
+  而且数据分布上一般具有正常运行样本量巨大但故障样本稀少的特点。
   如何根据正常运行样本进行训练并同时具备故障检测能力，
   已经成为亟待解决的问题。
   
-  同时， 由于其数据特点，工业人工智能摸往往存在着模型数量大、
+  同时， 由于其数据特点，工业人工智能往往存在着模型数量大、
   训练时间长、模型泛化能力差的问题，
-  如何加快模型训练速度、提供模型构造效率，也成为一个迫切需要解决的问题。 
+  如何加快模型训练速度、提升模型构造效率，也成为一个迫切需要解决的问题。 
 
-针对以上问题，本文开展两个方面的研究工作:1）利用正常数据训练出满足实际应用需求、并能发现故障的时间序列预测模型；2）提高时间序列模型训练效率。
+针对以上问题，本文开展两个方面的研究工作：1）利用正常数据训练出满足实际应用需求、并能发现故障的时间序列预测模型；2）提高时间序列模型训练效率。
 本文的主要贡献包括如下内容:
 
 \begin{enumerate}
   \item 针对牵引系统设备温度监测，
-  设计了基于历史信息和基于电气信号两种不同工业装备的性能变化趋势预测模型； 
-  \item 构造了基于以上模型的完整预测方案，首先应用LSTM 和 CNN 搭建时间序列预测网络，
-  利用经验模态分解进行信号分解,
+  设计了基于历史信息和基于电气信号两种不同工业装备的性能变化趋势预测模型。
+  \item 构造了基于以上模型的完整预测方案。首先应用LSTM 和 CNN 搭建时间序列预测网络；
+  利用经验模态分解进行信号分解；
   对不同频率信号进行分别预测；
-  并且进一步对高低频数据采用不同的采样频率;尝试应用自编码器进行相关特征处理。 
-  \item 研究利用重要性采样的方法对模型训练进行加速， 设计和搭建了通用加速训练框架，并且进行了实验验证，能够有效缩短训练过程50\%。
+  并且进一步对高低频数据采用不同的采样频率；
+  尝试应用自编码器进行相关特征处理。 
+  \item 研究利用重要性采样的方法对模型训练进行加速，
+  设计和搭建了通用加速训练框架，并且进行了实验验证，能够有效缩短训练过程50\%。
 \end{enumerate}
 
   \thusetup{
@@ -45,20 +47,57 @@
 \end{abstract}
 
 \begin{abstract*}
-  An abstract of a dissertation is a summary and extraction of research work and contributions.
-  Included in an abstract should be description of research topic and research objective, brief introduction to methodology and research process, and summarization of conclusion and contributions of the research.
-  An abstract should be characterized by independence and clarity and carry identical information with the dissertation.
-  It should be such that the general idea and major contributions of the dissertation are conveyed without reading the dissertation.
+  Using the booming artificial intelligence and big data technology,
+  realizing predictive maintenance for industrial equipment, 
+  especially complex equipment, is an important part of Industrial Internet+.
+  It can greatly reduce the operating cost of the equipment 
+  and fully guarantee the safe and stable operation of the equipment.
+  It is of great significance to the transformation, 
+  upgrading and leaping development of our manufacturing industry.
+  Since industrial equipment data is mainly based on time series data 
+  collected by sensors,
+  the above problems almost can be expressed as forecasting problems for time series.
+  
+  The data sources of industrial equipment are complex, 
+  with diverse mechanisms and numerous scenarios.
+  In addition, large normal operation samples and few fault samples 
+  is the main feature of data distribution.
+  How to train based on normal running samples and 
+  have fault detection capabilities at the same time,
+  has become an urgent problem to be solved.
+  
+  At the same time, due to its data characteristics, 
+  industrial artificial intelligence often has the problems of large number of models, 
+  long training time, and poor model generalization ability. 
+  How to speed up model training and improve model construction 
+  efficiency has become an urgent problem to be solved.
 
-  An abstract should be concise and to the point.
-  It is a misunderstanding to make an abstract an outline of the dissertation and words “the first chapter”, “the second chapter” and the like should be avoided in the abstract.
+  In response to the above problems, this paper carries out 
+  research in two aspects: 
+  1) Use normal data to train a time series prediction model 
+  that meets actual application requirements and find faults; 
+  2) Improve the efficiency of time series model training.
+  The main contributions of this article include the following:
 
-  Keywords are terms used in a dissertation for indexing, reflecting core information of the dissertation.
-  An abstract may contain a maximum of 5 keywords, with semi-colons used in between to separate one another.
-
+  \begin{enumerate}
+    \item For temperature monitoring of traction system equipment,
+    Designed two different industrial equipment performance change trend 
+    prediction models based on historical information and electrical signals.
+    \item Constructed a complete prediction scheme based on the above model. 
+    First, LSTM and CNN were used to build a time series prediction network.
+    Use empirical mode decomposition for signal decomposition.
+    Separately predict different frequency signals.
+    Adopt different sampling frequencies for high and low frequency data.
+    Try to apply autoencoder to deal with relevant features.
+    \item The study uses importance sampling methods to accelerate model training, 
+    designs and builds a general acceleration training framework, 
+    and conducts experimental verification, 
+    which can effectively shorten the training process by 50\%.
+  \end{enumerate}
   % Use comma as seperator when inputting
   \thusetup{
-    keywords* = {keyword 1, keyword 2, keyword 3, keyword 4, keyword 5},
+    keywords* = {time series forecasting, deep neural network, importance sampling, 
+    empirical mode decomposition},
   }
 \end{abstract*}
 
